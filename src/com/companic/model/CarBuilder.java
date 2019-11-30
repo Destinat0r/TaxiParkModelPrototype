@@ -21,6 +21,11 @@ public class CarBuilder {
         return this;
     }
 
+    public CarBuilder withVendor(String vendor) {
+        this.vendor = vendor;
+        return this;
+    }
+
     public CarBuilder withModel(String model) {
         this.model = model;
         return this;
