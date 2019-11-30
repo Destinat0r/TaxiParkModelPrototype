@@ -14,10 +14,8 @@ public class Car {
     private int value;
 
     public Car(CarBuilder builder) {
-        if (vendor == null || model == null || type == null || year == 0 || maxSpeed == 0 || fuelConsumption == 0
-                || accelerationTime == 0 || value == 0) {
-            throw new IllegalArgumentException();
-        }
+
+        allFieldsSetCheck(builder);
         this.vendor = builder.getVendor();
         this.model = builder.getModel();
         this.type = builder.getType();
@@ -27,6 +25,33 @@ public class Car {
         this.fuelConsumption = builder.getFuelConsumption();
         this.accelerationTime = builder.getAccelerationTime();
         this.value = builder.getValue();
+    }
+
+    private void allFieldsSetCheck(CarBuilder builder) {
+        if (builder.getVendor() == null) {
+            throw new IllegalArgumentException("vendor is not set");
+        }
+        if (builder.getModel() == null) {
+            throw new IllegalArgumentException("model is not set");
+        }
+        if (builder.getType() == null) {
+            throw new IllegalArgumentException("type is not set");
+        }
+        if (builder.getYear() == 0) {
+            throw new IllegalArgumentException("year is not set");
+        }
+        if (builder.getMaxSpeed() == 0) {
+            throw new IllegalArgumentException("maxSpeed is not set");
+        }
+        if (builder.getFuelConsumption() == 0) {
+            throw new IllegalArgumentException("fuelConsumption is not set");
+        }
+        if (builder.getAccelerationTime() == 0) {
+            throw new IllegalArgumentException("accelerationTime is not set");
+        }
+        if (builder.getValue() == 0) {
+            throw new IllegalArgumentException("value is not set");
+        }
     }
 
     public long getId() {
