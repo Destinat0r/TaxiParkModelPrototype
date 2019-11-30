@@ -133,4 +133,10 @@ public class Car {
     public void setValue(int value) {
         this.value = value;
     }
+
+    @Override public String toString() {
+        return "Car{" + "id=" + id + ", vendor='" + vendor + '\'' + ", model='" + model + '\'' + ", type=" + type
+                       + ", year=" + year + ", color=" + color + ", maxSpeed=" + maxSpeed + ", fuelConsumption="
+                       + fuelConsumption + ", accelerationTime=" + accelerationTime + ", value=" + value + '}';
+    }
 }
