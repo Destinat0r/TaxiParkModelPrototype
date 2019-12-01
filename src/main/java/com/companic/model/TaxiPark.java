@@ -1,7 +1,6 @@
 package com.companic.model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -21,12 +20,19 @@ public class TaxiPark {
         return totalValue;
     }
 
-    public ArrayList<Car> sortByFuelConsumption() {
-        ArrayList<Car> sorted = new ArrayList<>();
-        Collections.copy(sorted, cars);
+    public ArrayList<Car> sortByFuelConsumptionAsc() {
+        ArrayList<Car> sorted = new ArrayList<>(cars);
 
         Collections.sort(sorted, Comparator.comparingInt(Car::getFuelConsumption));
 
         return sorted;
+    }
+
+    public ArrayList<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(ArrayList<Car> cars) {
+        this.cars = cars;
     }
 }
