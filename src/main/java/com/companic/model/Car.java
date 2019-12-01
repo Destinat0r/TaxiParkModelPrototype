@@ -10,7 +10,6 @@ public class Car {
     private Color color;
     private int maxSpeed;
     private int fuelConsumption;
-    private int accelerationTime;
     private int value;
 
     public Car(CarBuilder builder) {
@@ -23,7 +22,6 @@ public class Car {
         this.color = builder.getColor();
         this.maxSpeed = builder.getMaxSpeed();
         this.fuelConsumption = builder.getFuelConsumption();
-        this.accelerationTime = builder.getAccelerationTime();
         this.value = builder.getValue();
     }
 
@@ -45,9 +43,6 @@ public class Car {
         }
         if (builder.getFuelConsumption() == 0) {
             throw new IllegalArgumentException("fuelConsumption is not set");
-        }
-        if (builder.getAccelerationTime() == 0) {
-            throw new IllegalArgumentException("accelerationTime is not set");
         }
         if (builder.getValue() == 0) {
             throw new IllegalArgumentException("value is not set");
@@ -118,14 +113,6 @@ public class Car {
         this.fuelConsumption = fuelConsumption;
     }
 
-    public int getAccelerationTime() {
-        return accelerationTime;
-    }
-
-    public void setAccelerationTime(int accelerationTime) {
-        this.accelerationTime = accelerationTime;
-    }
-
     public int getValue() {
         return value;
     }
@@ -137,6 +124,6 @@ public class Car {
     @Override public String toString() {
         return "Car{" + "id=" + id + ", vendor='" + vendor + '\'' + ", model='" + model + '\'' + ", type=" + type
                        + ", year=" + year + ", color=" + color + ", maxSpeed=" + maxSpeed + ", fuelConsumption="
-                       + fuelConsumption + ", accelerationTime=" + accelerationTime + ", value=" + value + '}';
+                       + fuelConsumption + ", value=" + value + '}';
     }
 }

@@ -9,7 +9,6 @@ public class CarBuilder {
     private Color color;
     private int maxSpeed;
     private int fuelConsumption;
-    private int accelerationTime;
     private int value;
 
     public static CarBuilder car() {
@@ -56,11 +55,6 @@ public class CarBuilder {
         return this;
     }
 
-    public CarBuilder withAccelerationTime(int accelerationTime) {
-        this.accelerationTime = accelerationTime;
-        return this;
-    }
-
     public CarBuilder withValue(int value) {
         this.value = value;
         return this;
@@ -100,10 +94,6 @@ public class CarBuilder {
 
     public int getFuelConsumption() {
         return fuelConsumption;
-    }
-
-    public int getAccelerationTime() {
-        return accelerationTime;
     }
 
     public int getValue() {

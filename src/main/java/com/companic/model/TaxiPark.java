@@ -20,9 +20,7 @@ public class TaxiPark {
 
     public List<Car> sortByFuelConsumptionAsc() {
         List<Car> sorted = new ArrayList<>(cars);
-
         Collections.sort(sorted, Comparator.comparingInt(Car::getFuelConsumption));
-
         return sorted;
     }
 
