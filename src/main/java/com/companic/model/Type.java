@@ -3,7 +3,7 @@ package com.companic.model;
 public enum Type {
     SEDAN,
     HATCHBACK,
-    LIFTBACK,
+    COUPE,
     WAGON,
     LIMOUSINE,
     MINI_VAN
