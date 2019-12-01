@@ -2,19 +2,20 @@ import com.companic.model.Car;
 import com.companic.model.Color;
 import com.companic.model.TaxiPark;
 import com.companic.model.Type;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static com.companic.model.CarBuilder.car;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 public class TaxiParkTest {
 
-    private static ArrayList<Car> cars;
+    private static List<Car> cars;
     private static TaxiPark taxiPark;
 
     private static Car car1;

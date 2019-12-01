@@ -3,11 +3,12 @@ package com.companic.model;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 public class TaxiPark {
-    private ArrayList<Car> cars;
+    private List<Car> cars;
 
-    public TaxiPark(ArrayList<Car> cars) {
+    public TaxiPark(List<Car> cars) {
         this.cars = cars;
     }
 
@@ -20,16 +21,16 @@ public class TaxiPark {
         return totalValue;
     }
 
-    public ArrayList<Car> sortByFuelConsumptionAsc() {
-        ArrayList<Car> sorted = new ArrayList<>(cars);
+    public List<Car> sortByFuelConsumptionAsc() {
+        List<Car> sorted = new ArrayList<>(cars);
 
         Collections.sort(sorted, Comparator.comparingInt(Car::getFuelConsumption));
 
         return sorted;
     }
 
-    public ArrayList<Car> findCarsWithinGivenMaxSpeedRange(int min, int max) {
-        ArrayList<Car> foundCars = new ArrayList<>();
+    public List<Car> findCarsWithinGivenMaxSpeedRange(int min, int max) {
+        List<Car> foundCars = new ArrayList<>();
         for (Car car : cars) {
             if (car.getMaxSpeed() >= min && car.getMaxSpeed() <= max) {
                 foundCars.add(car);
@@ -38,7 +39,7 @@ public class TaxiPark {
         return foundCars;
     }
 
-    public ArrayList<Car> getCars() {
+    public List<Car> getCars() {
         return cars;
     }
 
