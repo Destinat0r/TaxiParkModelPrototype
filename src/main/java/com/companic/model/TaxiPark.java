@@ -1,15 +1,12 @@
 package com.companic.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class TaxiPark {
     private List<Car> cars;
 
-    public TaxiPark(List<Car> cars) {
-        this.cars = cars;
+    public TaxiPark(Car ...cars) {
+        this.cars = new ArrayList<>(Arrays.asList(cars));
     }
 
     public int calculateTotalValue() {

@@ -45,8 +45,7 @@ public class TaxiParkTest {
                        .withColor(Color.GREEN).withMaxSpeed(300).withFuelConsumption(2).withAccelerationTime(8)
                        .withValue(5500).build();
 
-        cars = new ArrayList<>(Arrays.asList(car1, car2, car3, car4, car5));
-        taxiPark = new TaxiPark(cars);
+        taxiPark = new TaxiPark(car1, car2, car3, car4, car5);
     }
 
     @Test public void sortByFuelConsumptionAscTest() {
