@@ -28,6 +28,16 @@ public class TaxiPark {
         return sorted;
     }
 
+    public ArrayList<Car> findCarsWithinGivenMaxSpeedRange(int min, int max) {
+        ArrayList<Car> foundCars = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getMaxSpeed() >= min && car.getMaxSpeed() <= max) {
+                foundCars.add(car);
+            }
+        }
+        return foundCars;
+    }
+
     public ArrayList<Car> getCars() {
         return cars;
     }
