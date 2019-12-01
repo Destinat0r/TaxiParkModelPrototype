@@ -6,5 +6,5 @@ public enum Type {
     LIFTBACK,
     WAGON,
     LIMOUSINE,
-    MINIVAN
+    MINI_VAN
 }
