@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static com.companic.model.CarBuilder.car;
+import static org.junit.Assert.*;
 
 public class TaxiParkTest {
 
@@ -40,7 +41,7 @@ public class TaxiParkTest {
                        .withValue(3000).build();
 
         car5 = car().withVendor("Nissan").withModel("Lafesta").withYear(2008).withType(Type.MINI_VAN)
-                       .withColor(Color.GREEN).withMaxSpeed(250).withFuelConsumption(2).withAccelerationTime(8)
+                       .withColor(Color.GREEN).withMaxSpeed(300).withFuelConsumption(2).withAccelerationTime(8)
                        .withValue(5500).build();
 
         cars = new ArrayList<>(Arrays.asList(car1, car2, car3, car4, car5));
@@ -48,11 +49,15 @@ public class TaxiParkTest {
     }
 
     @Test public void sortByFuelConsumptionAscTest() {
-        Assert.assertArrayEquals(new Car[] { car5, car3, car1, car2, car4 },
+        assertArrayEquals(new Car[] { car5, car3, car1, car2, car4 },
                 taxiPark.sortByFuelConsumptionAsc().toArray());
     }
 
     @Test public void calculateTotalValueTest() {
-        Assert.assertEquals(18_300, taxiPark.calculateTotalValue());
+        assertEquals(18_300, taxiPark.calculateTotalValue());
+    }
+
+    @Test public void findCarsWithinGivenMaxSpeedRangeTest() {
+        assertArrayEquals(new Car[]{car2, car3, car4}, taxiPark.findCarsWithinGivenMaxSpeedRange(180, 245).toArray());
     }
 }
