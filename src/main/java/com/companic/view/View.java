@@ -13,13 +13,22 @@ public class View {
         this.resourceManager = ResourceManager.INSTANCE;
     }
 
-    public void print(String string) {
-        System.out.println(string);
-    }
-
     public void printAllCars(List<Car> cars) {
         for (Car car : cars) {
             print(car.toString());
         }
+    }
+
+    public void printTotalValue(int value) {
+        print(resourceManager.getString("total_value"));
+        print("" + value);
+    }
+
+    public void print(String string) {
+        System.out.println(string);
+    }
+
+    public void printWelcome() {
+        print(resourceManager.getString("welcome"));
     }
 }
