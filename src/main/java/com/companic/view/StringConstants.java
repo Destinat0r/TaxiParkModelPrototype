@@ -7,6 +7,7 @@ public interface StringConstants {
     String TOTAL_VALUE = "total_value";
     String WITHIN_MAX_SPEED_RANGE = "within_max_speed_range";
     String CAR = "car.car";
+    String ID = "car.id";
     String VENDOR = "car.vendor";
     String MODEL = "car.model";
     String TYPE = "car.type";
