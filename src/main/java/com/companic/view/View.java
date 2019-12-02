@@ -31,4 +31,15 @@ public class View {
     public void printWelcome() {
         print(resourceManager.getString("welcome"));
     }
+
+    public void printSortedByFuelConsumptionAsc(List<Car> cars) {
+        print(resourceManager.getString("sort_by_fuel_consumption_asc"));
+        printAllCars(cars);
+    }
+
+    public void printCarsWithinSpeedRange(int min, int max, List<Car> cars) {
+        String message = resourceManager.getString("within_max_speed_range");
+        System.out.printf(message, min, max);
+        printAllCars(cars);
+    }
 }
