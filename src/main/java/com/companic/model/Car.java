@@ -1,5 +1,7 @@
 package com.companic.model;
 
+import java.time.Year;
+
 public class Car {
 
     private long id;
@@ -35,17 +37,17 @@ public class Car {
         if (builder.getType() == null) {
             throw new IllegalArgumentException("type is not set");
         }
-        if (builder.getYear() == 0) {
-            throw new IllegalArgumentException("year is not set");
+        if (builder.getYear() <= 1970 || builder.getYear() > Year.now().getValue()) {
+            throw new IllegalArgumentException("year is not set or invalid");
         }
-        if (builder.getMaxSpeed() == 0) {
-            throw new IllegalArgumentException("maxSpeed is not set");
+        if (builder.getMaxSpeed() <= 60 || builder.getMaxSpeed() >= 400) {
+            throw new IllegalArgumentException("maxSpeed is not set or invalid");
         }
-        if (builder.getFuelConsumption() == 0) {
-            throw new IllegalArgumentException("fuelConsumption is not set");
+        if (builder.getFuelConsumption() <= 0) {
+            throw new IllegalArgumentException("fuelConsumption is not set or invalid");
         }
-        if (builder.getValue() == 0) {
-            throw new IllegalArgumentException("value is not set");
+        if (builder.getValue() <= 0) {
+            throw new IllegalArgumentException("value is not set or invalid");
         }
     }
 
