@@ -7,7 +7,10 @@ public class TaxiPark {
     private static long nextId = 0;
 
     public TaxiPark(Car ...cars) {
-        this.cars = new ArrayList<>(Arrays.asList(cars));
+        this.cars = new ArrayList<>();
+        for (Car car : cars) {
+            addCar(car);
+        }
     }
 
     public void addCar(Car car) {
