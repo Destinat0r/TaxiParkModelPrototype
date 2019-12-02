@@ -20,7 +20,7 @@ public class Controller {
     }
 
     public void run() {
-        ResourceManager.INSTANCE.changeResource(new Locale("uk"));
+        ResourceManager.INSTANCE.changeResource(new Locale("en"));
 
         Car car1 = car().withVendor("Toyota").withModel("Auris").withYear(2008).withType(Type.HATCHBACK)
                            .withColor(Color.GREEN).withMaxSpeed(250).withFuelConsumption(4).withValue(2000).build();
@@ -56,11 +56,13 @@ public class Controller {
         TaxiPark taxiPark = new TaxiPark(car1, car2, car3, car4, car5, car6, car7, car8, car9, car10);
 
         view.printWelcome();
-
+        view.print("");
         view.printAllCars(taxiPark.getCars());
+        view.print("");
         view.printSortedByFuelConsumptionAsc(taxiPark.sortByFuelConsumptionAsc());
-
+        view.print("");
         view.printTotalValue(taxiPark.calculateTotalValue());
+        view.print("");
         view.printCarsWithinSpeedRange(190, 260, taxiPark.findCarsWithinGivenMaxSpeedRange(190, 260));
 
     }
