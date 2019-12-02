@@ -4,6 +4,7 @@ import java.util.*;
 
 public class TaxiPark {
     private List<Car> cars;
+    private static int nextId = 0;
 
     public TaxiPark(Car ...cars) {
         this.cars = new ArrayList<>(Arrays.asList(cars));
