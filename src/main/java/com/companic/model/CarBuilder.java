@@ -1,5 +1,7 @@
 package com.companic.model;
 
+import com.companic.model.entity.Car;
+
 public class CarBuilder {
     private long id;
     private String vendor;

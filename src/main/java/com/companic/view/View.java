@@ -1,6 +1,6 @@
 package com.companic.view;
 
-import com.companic.model.Car;
+import com.companic.model.entity.Car;
 import com.companic.util.ResourceManager;
 
 import java.util.List;

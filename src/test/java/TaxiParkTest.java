@@ -1,12 +1,10 @@
-import com.companic.model.Car;
+import com.companic.model.entity.Car;
 import com.companic.model.Color;
-import com.companic.model.TaxiPark;
+import com.companic.model.entity.TaxiPark;
 import com.companic.model.Type;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static com.companic.model.CarBuilder.car;
