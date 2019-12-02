@@ -15,12 +15,21 @@ public class View {
 
     public void printAllCars(List<Car> cars) {
         for (Car car : cars) {
-            print(car.toString());
+            emulateLoading(300);
+            printCar(car);
+        }
+    }
+
+    private void emulateLoading(int ms) {
+        try {
+            Thread.sleep(ms);
+        } catch (InterruptedException ex) {
+
         }
     }
 
     public void printTotalValue(int value) {
-        print(resourceManager.getString(StringConstants.TOTAL_VALUE));
+        print(getFromResources(Constants.TOTAL_VALUE));
         print("" + value);
     }
 
@@ -29,17 +38,32 @@ public class View {
     }
 
     public void printWelcome() {
-        print(resourceManager.getString(StringConstants.WELCOME));
+        print(getFromResources(Constants.WELCOME));
     }
 
     public void printSortedByFuelConsumptionAsc(List<Car> cars) {
-        print(resourceManager.getString(StringConstants.SORT_BY_FUEL_CONSUMPTION_ASC));
+        print(getFromResources(Constants.SORT_BY_FUEL_CONSUMPTION_ASC));
         printAllCars(cars);
     }
 
     public void printCarsWithinSpeedRange(int min, int max, List<Car> cars) {
-        String message = resourceManager.getString(StringConstants.WITHIN_MAX_SPEED_RANGE);
+        String message = getFromResources(Constants.WITHIN_MAX_SPEED_RANGE);
         System.out.printf(message, min, max);
         printAllCars(cars);
+    }
+
+    public void printCar(Car car) {
+        print(getFromResources(Constants.CAR) + " [ " + getFromResources(Constants.ID) + ": " + car.getId() + ", "
+                       + getFromResources(Constants.VENDOR)  + ": " + car.getVendor() +  ", "
+                       + getFromResources(Constants.MODEL) + ": " + car.getModel() + ", " + getFromResources(Constants.TYPE) + ": "
+                       + car.getType()  + ", " + getFromResources(Constants.YEAR) + ": " + car.getYear() + ", "+ getFromResources(Constants.COLOR)
+                       + ": " + car.getColor() + ", " + getFromResources(Constants.MAX_SPEED) + ": " + car.getMaxSpeed() + ", "
+                       + getFromResources(Constants.FUEL) + ": " + car.getFuelConsumption() + ", " + getFromResources(Constants.VALUE)
+                       + ": " + car.getValue() + " ]");
+
+    }
+
+    private String getFromResources(String prop) {
+        return resourceManager.getString(prop);
     }
 }
