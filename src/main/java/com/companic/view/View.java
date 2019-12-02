@@ -20,7 +20,7 @@ public class View {
     }
 
     public void printTotalValue(int value) {
-        print(resourceManager.getString("total_value"));
+        print(resourceManager.getString(StringConstants.TOTAL_VALUE));
         print("" + value);
     }
 
@@ -29,16 +29,16 @@ public class View {
     }
 
     public void printWelcome() {
-        print(resourceManager.getString("welcome"));
+        print(resourceManager.getString(StringConstants.WELCOME));
     }
 
     public void printSortedByFuelConsumptionAsc(List<Car> cars) {
-        print(resourceManager.getString("sort_by_fuel_consumption_asc"));
+        print(resourceManager.getString(StringConstants.SORT_BY_FUEL_CONSUMPTION_ASC));
         printAllCars(cars);
     }
 
     public void printCarsWithinSpeedRange(int min, int max, List<Car> cars) {
-        String message = resourceManager.getString("within_max_speed_range");
+        String message = resourceManager.getString(StringConstants.WITHIN_MAX_SPEED_RANGE);
         System.out.printf(message, min, max);
         printAllCars(cars);
     }
