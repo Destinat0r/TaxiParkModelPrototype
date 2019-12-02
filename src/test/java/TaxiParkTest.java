@@ -1,6 +1,6 @@
 import com.companic.model.entity.Car;
 import com.companic.model.Color;
-import com.companic.model.entity.TaxiPark;
+import com.companic.model.TaxiPark;
 import com.companic.model.Type;
 import org.junit.BeforeClass;
 import org.junit.Test;
