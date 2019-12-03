@@ -6,7 +6,7 @@ import com.companic.model.Type;
 
 import java.time.Year;
 
-public class Car {
+public abstract class Car {
 
     private long id;
     private String vendor;
