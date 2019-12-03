@@ -35,9 +35,6 @@ public abstract class Car {
         if (builder.getModel() == null) {
             throw new IllegalArgumentException("model is not set");
         }
-        if (builder.getType() == null) {
-            throw new IllegalArgumentException("type is not set");
-        }
         if (builder.getYear() <= 1970 || builder.getYear() > Year.now().getValue()) {
             throw new IllegalArgumentException("year is not set or invalid");
         }
@@ -117,7 +114,7 @@ public abstract class Car {
     }
 
     @Override public String toString() {
-        return "Car{" + "id=" + id + ", vendor='" + vendor + '\'' + ", model='" + model + '\'' 
+        return "Car{" + "id=" + id + ", vendor='" + vendor + '\'' + ", model='" + model + '\''
                        + ", year=" + year + ", color=" + color + ", maxSpeed=" + maxSpeed + ", fuelConsumption="
                        + fuelConsumption + ", value=" + value + '}';
     }
