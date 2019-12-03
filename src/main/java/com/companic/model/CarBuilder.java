@@ -2,7 +2,7 @@ package com.companic.model;
 
 import com.companic.model.entity.Car;
 
-public class CarBuilder {
+public abstract class CarBuilder {
     private long id;
     private String vendor;
     private String model;
@@ -13,9 +13,9 @@ public class CarBuilder {
     private int fuelConsumption;
     private int value;
 
-    public static CarBuilder car() {
-        return new CarBuilder();
-    }
+//    public static CarBuilder car() {
+//        return new CarBuilder();
+//    }
 
     public CarBuilder withId(long id) {
         this.id = id;
@@ -62,9 +62,9 @@ public class CarBuilder {
         return this;
     }
 
-    public Car build() {
-        return new Car(this);
-    }
+//    public Car build() {
+//        return new Car(this);
+//    }
 
     public long getId() {
         return id;
