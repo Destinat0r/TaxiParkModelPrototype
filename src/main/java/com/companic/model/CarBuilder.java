@@ -1,12 +1,9 @@
 package com.companic.model;
 
-import com.companic.model.entity.Car;
-
 public abstract class CarBuilder {
     private long id;
     private String vendor;
     private String model;
-    private Type type;
     private int year;
     private Color color;
     private int maxSpeed;
@@ -29,11 +26,6 @@ public abstract class CarBuilder {
 
     public CarBuilder withModel(String model) {
         this.model = model;
-        return this;
-    }
-
-    public CarBuilder withType(Type type) {
-        this.type = type;
         return this;
     }
 
@@ -76,10 +68,6 @@ public abstract class CarBuilder {
 
     public String getModel() {
         return model;
-    }
-
-    public Type getType() {
-        return type;
     }
 
     public int getYear() {
