@@ -2,7 +2,6 @@ package com.companic.model.entity;
 
 import com.companic.model.CarBuilder;
 import com.companic.model.Color;
-import com.companic.model.Type;
 
 import java.time.Year;
 
@@ -11,7 +10,6 @@ public abstract class Car {
     private long id;
     private String vendor;
     private String model;
-    private Type type;
     private int year;
     private Color color;
     private int maxSpeed;
@@ -23,7 +21,6 @@ public abstract class Car {
         allFieldsSetCheck(builder);
         this.vendor = builder.getVendor();
         this.model = builder.getModel();
-        this.type = builder.getType();
         this.year = builder.getYear();
         this.color = builder.getColor();
         this.maxSpeed = builder.getMaxSpeed();
@@ -79,14 +76,6 @@ public abstract class Car {
         this.model = model;
     }
 
-    public Type getType() {
-        return type;
-    }
-
-    public void setType(Type type) {
-        this.type = type;
-    }
-
     public int getYear() {
         return year;
     }
@@ -128,7 +117,7 @@ public abstract class Car {
     }
 
     @Override public String toString() {
-        return "Car{" + "id=" + id + ", vendor='" + vendor + '\'' + ", model='" + model + '\'' + ", type=" + type
+        return "Car{" + "id=" + id + ", vendor='" + vendor + '\'' + ", model='" + model + '\'' 
                        + ", year=" + year + ", color=" + color + ", maxSpeed=" + maxSpeed + ", fuelConsumption="
                        + fuelConsumption + ", value=" + value + '}';
     }
