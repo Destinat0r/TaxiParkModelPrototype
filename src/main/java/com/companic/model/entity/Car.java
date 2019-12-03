@@ -17,8 +17,7 @@ public abstract class Car {
     private int value;
 
     public Car(CarBuilder builder) {
-
-        allFieldsSetCheck(builder);
+        checkFields(builder);
         this.vendor = builder.getVendor();
         this.model = builder.getModel();
         this.year = builder.getYear();
@@ -28,7 +27,7 @@ public abstract class Car {
         this.value = builder.getValue();
     }
 
-    private void allFieldsSetCheck(CarBuilder builder) {
+    private void checkFields(CarBuilder builder) {
         if (builder.getVendor() == null) {
             throw new IllegalArgumentException("vendor is not set");
         }
