@@ -28,15 +28,7 @@ public class TruckBuilder extends CarBuilder<TruckBuilder> {
         return duty;
     }
 
-    public void setDuty(Duty duty) {
-        this.duty = duty;
-    }
-
     public int getPayload() {
         return payload;
-    }
-
-    public void setPayload(int payload) {
-        this.payload = payload;
     }
 }
