@@ -57,10 +57,26 @@ public class View {
 
         boolean isPassenger = appendCorrectCarType(car, builder);
 
-        builder.append(" [ ").append(getFromResources(LocaleConstants.LICENSE_PLATE)).append(key_value_divider)
+        builder.append(getFromResources(LocaleConstants.LEFT_BORDER)).append(getFromResources(LocaleConstants.LICENSE_PLATE)).append(key_value_divider)
                 .append(car.getLicensePlate()).append(divider).append(getFromResources(LocaleConstants.VENDOR))
                 .append(key_value_divider).append(car.getVendor()).append(divider).append(getFromResources(LocaleConstants.MODEL))
                 .append(key_value_divider).append(car.getModel()).append(divider);
+
+        appendSpecificInfo(car, builder, isPassenger);
+
+        builder.append(getFromResources(LocaleConstants.YEAR)).append(key_value_divider).append(car.getYear()).append(divider)
+                .append(getFromResources(LocaleConstants.COLOR)).append(key_value_divider).append(car.getColor()).append(divider)
+                .append(getFromResources(LocaleConstants.MAX_SPEED)).append(key_value_divider).append(car.getMaxSpeed())
+                .append(divider).append(getFromResources(LocaleConstants.FUEL)).append(key_value_divider)
+                .append(car.getFuelConsumption()).append(divider).append(getFromResources(LocaleConstants.VALUE))
+                .append(key_value_divider).append(car.getValue()).append(getFromResources(LocaleConstants.RIGHT_BORDER));
+
+        return builder.toString();
+    }
+
+    private void appendSpecificInfo(Car car, StringBuilder builder, boolean isPassenger) {
+        String key_value_divider = getFromResources(LocaleConstants.KEY_VALUE_DIVIDER);
+        String divider = getFromResources(LocaleConstants.DIVIDER);
 
         if (isPassenger) {
             PassengerCar passengerCar = (PassengerCar) car;
@@ -73,15 +89,6 @@ public class View {
                     .append(getFromResources(LocaleConstants.PAYLOAD)).append(key_value_divider).append(truck.getPayload())
                     .append(divider);
         }
-
-        builder.append(getFromResources(LocaleConstants.YEAR)).append(key_value_divider).append(car.getYear()).append(divider)
-                .append(getFromResources(LocaleConstants.COLOR)).append(key_value_divider).append(car.getColor()).append(divider)
-                .append(getFromResources(LocaleConstants.MAX_SPEED)).append(key_value_divider).append(car.getMaxSpeed())
-                .append(divider).append(getFromResources(LocaleConstants.FUEL)).append(key_value_divider)
-                .append(car.getFuelConsumption()).append(divider).append(getFromResources(LocaleConstants.VALUE))
-                .append(key_value_divider).append(car.getValue()).append(" ]");
-
-        return builder.toString();
     }
 
     private boolean appendCorrectCarType(Car car, StringBuilder builder) {
