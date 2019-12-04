@@ -3,7 +3,7 @@ package com.companic.model.entity;
 import com.companic.model.Body;
 import com.companic.model.CarBuilder;
 
-public class PassengerCarBuilder extends CarBuilder {
+public class PassengerCarBuilder extends CarBuilder<PassengerCarBuilder> {
     private Body body;
     private int passengersAmount;
 
