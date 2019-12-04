@@ -1,7 +1,5 @@
-import com.companic.model.entity.Car;
+import com.companic.model.entity.*;
 import com.companic.model.Color;
-import com.companic.model.entity.PassengerCar;
-import com.companic.model.entity.TaxiPark;
 import com.companic.model.Body;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -9,6 +7,7 @@ import org.junit.Test;
 import java.util.List;
 
 import static com.companic.model.entity.PassengerCarBuilder.passengerCar;
+import static com.companic.model.entity.TruckBuilder.truck;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
@@ -22,6 +21,12 @@ public class TaxiParkTest {
     private static PassengerCar car3;
     private static PassengerCar car4;
     private static PassengerCar car5;
+
+    private static Truck car6;
+    private static Truck car7;
+    private static Truck car8;
+    private static Truck car9;
+    private static Truck car10;
 
     @BeforeClass public static void init() {
         car1 = passengerCar().withVendor("Toyota").withModel("Auris").withYear(2008).withBody(Body.HATCHBACK)
@@ -44,15 +49,21 @@ public class TaxiParkTest {
                        .withColor(Color.GREEN).withMaxSpeed(300).withFuelConsumption(2).withPassengersAmount(4)
                        .withValue(5500).build();
 
-        taxiPark = new TaxiPark(car1, car2, car3, car4, car5);
+        car6 = truck().withVendor("Nissan").withModel("Lafesta").withYear(2008).withDuty(Duty.LIGHT).withPayload(2000)
+                       .withColor(Color.GREEN).withMaxSpeed(150).withFuelConsumption(10).withValue(7500).build();
+
+        car7 = truck().withVendor("Nissan").withModel("Lafesta").withYear(2008).withDuty(Duty.MEDIUM).withPayload(5000)
+                             .withColor(Color.BLUE).withMaxSpeed(140).withFuelConsumption(15).withValue(17500).build();;
+
+        taxiPark = new TaxiPark(car1, car2, car3, car4, car5, car6, car7);
     }
 
     @Test public void sortByFuelConsumptionAscTest() {
-        assertArrayEquals(new Car[] { car5, car3, car1, car2, car4 }, taxiPark.sortByFuelConsumptionAsc().toArray());
+        assertArrayEquals(new Car[] { car5, car3, car1, car2, car4, car6, car7 }, taxiPark.sortByFuelConsumptionAsc().toArray());
     }
 
     @Test public void calculateTotalValueTest() {
-        assertEquals(18_300, taxiPark.calculateTotalValue());
+        assertEquals(43_300, taxiPark.calculateTotalValue());
     }
 
     @Test public void findCarsWithinGivenMaxSpeedRangeTest() {
