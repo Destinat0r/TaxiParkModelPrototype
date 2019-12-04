@@ -1,6 +1,7 @@
 package com.companic.model.entities.car;
 
 import java.time.Year;
+import java.util.Objects;
 
 public abstract class Car {
 
@@ -111,5 +112,21 @@ public abstract class Car {
 
     public void setValue(int value) {
         this.value = value;
+    }
+
+    @Override public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Car car = (Car) o;
+        return year == car.year && maxSpeed == car.maxSpeed && fuelConsumption == car.fuelConsumption
+                       && value == car.value && Objects.equals(licensePlate, car.licensePlate) && Objects.equals(vendor,
+                car.vendor) && Objects.equals(model, car.model) && color == car.color;
+    }
+
+    @Override public int hashCode() {
+
+        return Objects.hash(licensePlate, vendor, model, year, color, maxSpeed, fuelConsumption, value);
     }
 }

@@ -2,6 +2,8 @@ package com.companic.model.entities.car.passenger_car;
 
 import com.companic.model.entities.car.Car;
 
+import java.util.Objects;
+
 public class PassengerCar extends Car {
 
     private Body body;
@@ -37,5 +39,21 @@ public class PassengerCar extends Car {
 
     public void setPassengersAmount(int passengersAmount) {
         this.passengersAmount = passengersAmount;
+    }
+
+    @Override public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        if (!super.equals(o))
+            return false;
+        PassengerCar that = (PassengerCar) o;
+        return passengersAmount == that.passengersAmount && body == that.body;
+    }
+
+    @Override public int hashCode() {
+
+        return Objects.hash(super.hashCode(), body, passengersAmount);
     }
 }

@@ -2,6 +2,8 @@ package com.companic.model.entities.car.truck;
 
 import com.companic.model.entities.car.Car;
 
+import java.util.Objects;
+
 public class Truck extends Car {
     private Duty duty;
     private int payload;
@@ -36,6 +38,22 @@ public class Truck extends Car {
 
     public void setPayload(int payload) {
         this.payload = payload;
+    }
+
+    @Override public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        if (!super.equals(o))
+            return false;
+        Truck truck = (Truck) o;
+        return payload == truck.payload && duty == truck.duty;
+    }
+
+    @Override public int hashCode() {
+
+        return Objects.hash(super.hashCode(), duty, payload);
     }
 
     @Override public String toString() {
