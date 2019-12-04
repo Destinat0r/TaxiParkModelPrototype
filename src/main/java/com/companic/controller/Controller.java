@@ -6,7 +6,7 @@ import com.companic.model.entities.*;
 import com.companic.model.entities.car.passenger_car.PassengerCar;
 import com.companic.model.entities.car.truck.Duty;
 import com.companic.model.entities.car.truck.Truck;
-import com.companic.util.ResourceManager;
+import com.companic.locale_util.ResourceManager;
 import com.companic.view.View;
 
 import java.util.Locale;
