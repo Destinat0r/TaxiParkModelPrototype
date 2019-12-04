@@ -28,15 +28,7 @@ public class PassengerCarBuilder extends CarBuilder<PassengerCarBuilder> {
         return body;
     }
 
-    public void setBody(Body body) {
-        this.body = body;
-    }
-
     public int getPassengersAmount() {
         return passengersAmount;
-    }
-
-    public void setPassengersAmount(int passengersAmount) {
-        this.passengersAmount = passengersAmount;
     }
 }
