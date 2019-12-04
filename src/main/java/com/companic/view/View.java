@@ -59,7 +59,7 @@ public class View {
         String colon = ": ";
         String divider = ", ";
 
-        boolean isPassenger = Car.class.getClass().equals("PassengerCar");
+        boolean isPassenger = car instanceof PassengerCar;
 
         if (isPassenger) {
             builder.append(getFromResources(LocaleConstants.PASSENGER_CAR));
@@ -76,7 +76,7 @@ public class View {
             PassengerCar passengerCar = (PassengerCar) car;
             builder.append(getFromResources(LocaleConstants.BODY)).append(colon).append(passengerCar.getBody())
                     .append(divider);
-        } else{
+        } else {
             Truck truck = (Truck) car;
             builder.append(getFromResources(LocaleConstants.DUTY)).append(colon).append(truck.getDuty()).append(divider)
                     .append(getFromResources(LocaleConstants.PAYLOAD)).append(colon).append(truck.getPayload())
