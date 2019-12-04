@@ -1,7 +1,7 @@
 package com.companic.view;
 
 import com.companic.model.entities.car.Car;
-import com.companic.model.entities.PassengerCar;
+import com.companic.model.entities.car.passenger_car.PassengerCar;
 import com.companic.model.entities.car.truck.Truck;
 import com.companic.util.ResourceManager;
 

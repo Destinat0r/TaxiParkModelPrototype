@@ -1,4 +1,4 @@
-package com.companic.model;
+package com.companic.model.entities.car.passenger_car;
 
 public enum Body {
     SEDAN,

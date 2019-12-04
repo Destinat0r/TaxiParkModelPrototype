@@ -1,6 +1,5 @@
-package com.companic.model.entities;
+package com.companic.model.entities.car.passenger_car;
 
-import com.companic.model.Body;
 import com.companic.model.entities.car.CarBuilder;
 
 public class PassengerCarBuilder extends CarBuilder<PassengerCarBuilder> {
