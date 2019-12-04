@@ -1,5 +1,6 @@
 package com.companic.model.entity;
 
+import com.companic.model.Body;
 import com.companic.model.CarBuilder;
 import com.companic.model.Color;
 
@@ -18,6 +19,7 @@ public abstract class Car {
 
     public Car(CarBuilder builder) {
         checkFields(builder);
+        this.licensePlate = builder.getLicensePlate();
         this.vendor = builder.getVendor();
         this.model = builder.getModel();
         this.year = builder.getYear();
@@ -28,6 +30,9 @@ public abstract class Car {
     }
 
     private void checkFields(CarBuilder builder) {
+        if (builder.getLicensePlate() == null || builder.getLicensePlate().length() != 7) {
+            throw new IllegalArgumentException("license plate is not set or invalid");
+        }
         if (builder.getVendor() == null) {
             throw new IllegalArgumentException("vendor is not set");
         }
@@ -110,11 +115,5 @@ public abstract class Car {
 
     public void setValue(int value) {
         this.value = value;
-    }
-
-    @Override public String toString() {
-        return "Car{" + "licensePlate=" + licensePlate + ", vendor='" + vendor + '\'' + ", model='" + model + '\''
-                       + ", year=" + year + ", color=" + color + ", maxSpeed=" + maxSpeed + ", fuelConsumption="
-                       + fuelConsumption + ", value=" + value + '}';
     }
 }
