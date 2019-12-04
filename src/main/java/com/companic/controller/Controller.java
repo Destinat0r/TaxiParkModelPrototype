@@ -2,14 +2,14 @@ package com.companic.controller;
 
 import com.companic.model.Color;
 import com.companic.model.Body;
-import com.companic.model.entity.*;
+import com.companic.model.entities.*;
 import com.companic.util.ResourceManager;
 import com.companic.view.View;
 
 import java.util.Locale;
 
-import static com.companic.model.entity.PassengerCarBuilder.passengerCar;
-import static com.companic.model.entity.TruckBuilder.truck;
+import static com.companic.model.entities.PassengerCarBuilder.passengerCar;
+import static com.companic.model.entities.TruckBuilder.truck;
 
 public class Controller {
 

@@ -1,8 +1,8 @@
 package com.companic.view;
 
-import com.companic.model.entity.Car;
-import com.companic.model.entity.PassengerCar;
-import com.companic.model.entity.Truck;
+import com.companic.model.entities.Car;
+import com.companic.model.entities.PassengerCar;
+import com.companic.model.entities.Truck;
 import com.companic.util.ResourceManager;
 
 import java.util.List;

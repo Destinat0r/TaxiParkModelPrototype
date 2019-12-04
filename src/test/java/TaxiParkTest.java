@@ -1,4 +1,4 @@
-import com.companic.model.entity.*;
+import com.companic.model.entities.*;
 import com.companic.model.Color;
 import com.companic.model.Body;
 import org.junit.BeforeClass;
@@ -6,8 +6,8 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static com.companic.model.entity.PassengerCarBuilder.passengerCar;
-import static com.companic.model.entity.TruckBuilder.truck;
+import static com.companic.model.entities.PassengerCarBuilder.passengerCar;
+import static com.companic.model.entities.TruckBuilder.truck;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 

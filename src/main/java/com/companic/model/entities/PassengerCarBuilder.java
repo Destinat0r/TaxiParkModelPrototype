@@ -1,4 +1,4 @@
-package com.companic.model.entity;
+package com.companic.model.entities;
 
 import com.companic.model.Body;
 import com.companic.model.CarBuilder;

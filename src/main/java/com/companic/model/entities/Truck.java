@@ -1,4 +1,4 @@
-package com.companic.model.entity;
+package com.companic.model.entities;
 
 public class Truck extends Car {
     private Duty duty;
