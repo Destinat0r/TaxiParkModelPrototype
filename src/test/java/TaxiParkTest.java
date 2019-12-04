@@ -31,35 +31,39 @@ public class TaxiParkTest {
     @BeforeClass public static void init() {
         car1 = passengerCar().withVendor("Toyota").withModel("Auris").withYear(2008).withBody(Body.HATCHBACK)
                        .withColor(Color.GREEN).withMaxSpeed(250).withFuelConsumption(4).withPassengersAmount(4)
-                       .withValue(2000).build();
+                       .withValue(2000).withLicense("12GH1G5").build();
 
         car2 = passengerCar().withVendor("Mercedes").withModel("E Class").withYear(2003).withBody(Body.SEDAN)
-                       .withColor(Color.GREY).withMaxSpeed(240).withFuelConsumption(7).withPassengersAmount(4)
-                       .withValue(3800).build();
+                       .withColor(Color.GREY).withMaxSpeed(240).withLicense("12GH1G5").withFuelConsumption(7)
+                       .withPassengersAmount(4).withValue(3800).build();
 
         car3 = passengerCar().withVendor("Honda").withModel("Fit").withYear(2004).withBody(Body.HATCHBACK)
-                       .withColor(Color.YELLOW).withMaxSpeed(200).withFuelConsumption(3).withPassengersAmount(4)
-                       .withValue(4000).build();
+                       .withColor(Color.YELLOW).withLicense("12GH1G5").withMaxSpeed(200).withFuelConsumption(3)
+                       .withPassengersAmount(4).withValue(4000).build();
 
-        car4 = passengerCar().withVendor("Subaru").withModel("Impreza").withYear(2005).withBody(Body.SEDAN)
-                       .withColor(Color.GREEN).withMaxSpeed(190).withFuelConsumption(9).withPassengersAmount(4)
-                       .withValue(3000).build();
+        car4 = passengerCar().withVendor("Subaru").withModel("Impreza").withYear(2005).withLicense("12GH1G5")
+                       .withBody(Body.SEDAN).withColor(Color.GREEN).withMaxSpeed(190).withFuelConsumption(9)
+                       .withPassengersAmount(4).withValue(3000).build();
 
         car5 = passengerCar().withVendor("Nissan").withModel("Lafesta").withYear(2008).withBody(Body.MINI_VAN)
                        .withColor(Color.GREEN).withMaxSpeed(300).withFuelConsumption(2).withPassengersAmount(4)
-                       .withValue(5500).build();
+                       .withLicense("12GH1G5").withValue(5500).build();
 
         car6 = truck().withVendor("Nissan").withModel("Lafesta").withYear(2008).withDuty(Duty.LIGHT).withPayload(2000)
-                       .withColor(Color.GREEN).withMaxSpeed(150).withFuelConsumption(10).withValue(7500).build();
+                       .withColor(Color.GREEN).withMaxSpeed(150).withFuelConsumption(10).withValue(7500)
+                       .withLicense("12GH1G5").build();
 
         car7 = truck().withVendor("Nissan").withModel("Lafesta").withYear(2008).withDuty(Duty.MEDIUM).withPayload(5000)
-                             .withColor(Color.BLUE).withMaxSpeed(140).withFuelConsumption(15).withValue(17500).build();;
+                       .withLicense("12GH1G5").withColor(Color.BLUE).withMaxSpeed(140).withFuelConsumption(15)
+                       .withValue(17500).build();
+        ;
 
         taxiPark = new TaxiPark(car1, car2, car3, car4, car5, car6, car7);
     }
 
     @Test public void sortByFuelConsumptionAscTest() {
-        assertArrayEquals(new Car[] { car5, car3, car1, car2, car4, car6, car7 }, taxiPark.sortByFuelConsumptionAsc().toArray());
+        assertArrayEquals(new Car[] { car5, car3, car1, car2, car4, car6, car7 },
+                taxiPark.sortByFuelConsumptionAsc().toArray());
     }
 
     @Test public void calculateTotalValueTest() {
