@@ -10,7 +10,7 @@ public interface Constants {
     String ID = "car.id";
     String VENDOR = "car.vendor";
     String MODEL = "car.model";
-    String TYPE = "car.type";
+    String BODY = "car.passenger.body";
     String YEAR = "car.year";
     String COLOR = "car.color";
     String MAX_SPEED = "car.max_speed";
