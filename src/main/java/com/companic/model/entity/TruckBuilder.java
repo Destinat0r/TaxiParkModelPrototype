@@ -6,7 +6,7 @@ public class TruckBuilder extends CarBuilder<TruckBuilder> {
     private Duty duty;
     private int payload;
 
-    public TruckBuilder truck() {
+    public static TruckBuilder truck() {
         return new TruckBuilder();
     }
 
