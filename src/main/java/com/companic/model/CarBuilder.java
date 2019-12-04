@@ -3,7 +3,7 @@ package com.companic.model;
 import com.companic.model.entity.Car;
 
 public abstract class CarBuilder<B extends CarBuilder> {
-    private long id;
+    private String licensePlate;
     private String vendor;
     private String model;
     private int year;
@@ -12,8 +12,8 @@ public abstract class CarBuilder<B extends CarBuilder> {
     private int fuelConsumption;
     private int value;
 
-    public B withId(long id) {
-        this.id = id;
+    public B withLicense(String licensePlate) {
+        this.licensePlate = licensePlate;
         return self();
     }
 
@@ -58,8 +58,8 @@ public abstract class CarBuilder<B extends CarBuilder> {
         return (B) this;
     }
 
-    public long getId() {
-        return id;
+    public String getLicensePlate() {
+        return licensePlate;
     }
 
     public String getVendor() {
