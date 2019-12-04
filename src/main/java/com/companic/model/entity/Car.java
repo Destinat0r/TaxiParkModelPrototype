@@ -7,7 +7,7 @@ import java.time.Year;
 
 public abstract class Car {
 
-    private long id;
+    private String licensePlate;
     private String vendor;
     private String model;
     private int year;
@@ -48,12 +48,12 @@ public abstract class Car {
         }
     }
 
-    public long getId() {
-        return id;
+    public String getLicensePlate() {
+        return licensePlate;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setLicensePlate(String licensePlate) {
+        this.licensePlate = licensePlate;
     }
 
     public String getVendor() {
@@ -113,7 +113,7 @@ public abstract class Car {
     }
 
     @Override public String toString() {
-        return "Car{" + "id=" + id + ", vendor='" + vendor + '\'' + ", model='" + model + '\''
+        return "Car{" + "licensePlate=" + licensePlate + ", vendor='" + vendor + '\'' + ", model='" + model + '\''
                        + ", year=" + year + ", color=" + color + ", maxSpeed=" + maxSpeed + ", fuelConsumption="
                        + fuelConsumption + ", value=" + value + '}';
     }

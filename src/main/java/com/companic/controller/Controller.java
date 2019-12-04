@@ -2,16 +2,14 @@ package com.companic.controller;
 
 import com.companic.model.Color;
 import com.companic.model.Body;
-import com.companic.model.entity.Car;
-import com.companic.model.entity.PassengerCar;
-import com.companic.model.entity.TaxiPark;
-import com.companic.model.entity.Truck;
+import com.companic.model.entity.*;
 import com.companic.util.ResourceManager;
 import com.companic.view.View;
 
 import java.util.Locale;
 
 import static com.companic.model.entity.PassengerCarBuilder.passengerCar;
+import static com.companic.model.entity.TruckBuilder.truck;
 
 public class Controller {
 
@@ -54,8 +52,14 @@ public class Controller {
         PassengerCar car10 = passengerCar().withVendor("Mitsubishi").withModel("Colt Plus").withYear(2006).withBody(Body.HATCHBACK)
                             .withColor(Color.VIOLET).withMaxSpeed(265).withFuelConsumption(6).withPassengersAmount(4).withValue(1900).build();
 
+        Truck car11 = truck().withVendor("Nissan").withModel("Lafesta").withYear(2008).withDuty(Duty.LIGHT).withPayload(2000)
+                       .withColor(Color.GREEN).withMaxSpeed(150).withFuelConsumption(10).withValue(7500).build();
 
-        TaxiPark taxiPark = new TaxiPark(car1, car2, car3, car4, car5, car6, car7, car8, car9, car10);
+        Truck car12 = truck().withVendor("Nissan").withModel("Lafesta").withYear(2008).withDuty(Duty.MEDIUM).withPayload(5000)
+                       .withColor(Color.BLUE).withMaxSpeed(140).withFuelConsumption(15).withValue(17500).build();;
+
+
+        TaxiPark taxiPark = new TaxiPark(car1, car2, car3, car4, car5, car6, car7, car8, car9, car10, car11, car12);
 
         view.printWelcome();
         view.print("");
@@ -65,7 +69,7 @@ public class Controller {
         view.print("");
         view.printTotalValue(taxiPark.calculateTotalValue());
         view.print("");
-        view.printCarsWithinSpeedRange(190, 260, taxiPark.findCarsWithinGivenMaxSpeedRange(190, 260));
+        view.printCarsWithinSpeedRange(130, 260, taxiPark.findCarsWithinGivenMaxSpeedRange(130, 260));
 
     }
 }

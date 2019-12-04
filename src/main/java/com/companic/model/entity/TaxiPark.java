@@ -4,7 +4,6 @@ import java.util.*;
 
 public class TaxiPark {
     private List<Car> cars;
-    private static long nextId = 0;
 
     public TaxiPark(Car ...cars) {
         this.cars = new ArrayList<>();
@@ -14,7 +13,6 @@ public class TaxiPark {
     }
 
     public void addCar(Car car) {
-        car.setId(nextId++);
         cars.add(car);
     }
 

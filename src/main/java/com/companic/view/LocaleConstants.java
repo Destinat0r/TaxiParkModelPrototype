@@ -8,10 +8,11 @@ public interface LocaleConstants {
     String WITHIN_MAX_SPEED_RANGE = "within_max_speed_range";
     String PASSENGER_CAR = "car.passenger";
     String TRUCK = "car.truck";
-    String ID = "car.id";
+    String LICENSE_PLATE = "car.license_plate";
     String VENDOR = "car.vendor";
     String MODEL = "car.model";
     String BODY = "car.passenger.body";
+    String PASSENGERS_AMOUNT = "car.passenger.passengers_amount";
     String DUTY = "car.truck.duty";
     String PAYLOAD = "car.truck.payload";
     String YEAR = "car.year";

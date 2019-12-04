@@ -67,7 +67,7 @@ public class View {
             builder.append(getFromResources(LocaleConstants.TRUCK));
         }
 
-        builder.append(" [ ").append(getFromResources(LocaleConstants.ID)).append(colon).append(car.getId())
+        builder.append(" [ ").append(getFromResources(LocaleConstants.LICENSE_PLATE)).append(colon).append(car.getLicensePlate())
                 .append(divider).append(getFromResources(LocaleConstants.VENDOR)).append(colon).append(car.getVendor())
                 .append(divider).append(getFromResources(LocaleConstants.MODEL)).append(colon).append(car.getModel())
                 .append(divider);
