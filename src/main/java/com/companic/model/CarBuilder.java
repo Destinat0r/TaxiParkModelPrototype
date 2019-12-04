@@ -1,6 +1,8 @@
 package com.companic.model;
 
-public abstract class CarBuilder {
+import com.companic.model.entity.Car;
+
+public abstract class CarBuilder<B extends CarBuilder> {
     private long id;
     private String vendor;
     private String model;
@@ -10,53 +12,51 @@ public abstract class CarBuilder {
     private int fuelConsumption;
     private int value;
 
-//    public static CarBuilder car() {
-//        return new CarBuilder();
-//    }
-
-    public CarBuilder withId(long id) {
+    public B withId(long id) {
         this.id = id;
-        return this;
+        return self();
     }
 
-    public CarBuilder withVendor(String vendor) {
+    public B withVendor(String vendor) {
         this.vendor = vendor;
-        return this;
+        return self();
     }
 
-    public CarBuilder withModel(String model) {
+    public B withModel(String model) {
         this.model = model;
-        return this;
+        return self();
     }
 
-    public CarBuilder withYear(int year) {
+    public B withYear(int year) {
         this.year = year;
-        return this;
+        return self();
     }
 
-    public CarBuilder withColor(Color color) {
+    public B withColor(Color color) {
         this.color = color;
-        return this;
+        return self();
     }
 
-    public CarBuilder withMaxSpeed(int maxSpeed) {
+    public B withMaxSpeed(int maxSpeed) {
         this.maxSpeed = maxSpeed;
-        return this;
+        return self();
     }
 
-    public CarBuilder withFuelConsumption(int liters) {
+    public B withFuelConsumption(int liters) {
         this.fuelConsumption = liters;
-        return this;
+        return self();
     }
 
-    public CarBuilder withValue(int value) {
+    public B withValue(int value) {
         this.value = value;
-        return this;
+        return self();
     }
 
-//    public Car build() {
-//        return new Car(this);
-//    }
+    public abstract Car build();
+
+    final B self() {
+        return (B) this;
+    }
 
     public long getId() {
         return id;
