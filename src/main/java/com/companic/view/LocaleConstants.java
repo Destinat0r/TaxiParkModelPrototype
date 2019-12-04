@@ -5,6 +5,8 @@ public interface LocaleConstants {
     String VIEW_ALL = "view_all";
     String DIVIDER = "divider";
     String KEY_VALUE_DIVIDER = "key_value_divider";
+    String LEFT_BORDER = "left_border";
+    String RIGHT_BORDER = "right_border";
     String SORT_BY_FUEL_CONSUMPTION_ASC = "sort_by_fuel_consumption_asc";
     String TOTAL_VALUE = "total_value";
     String WITHIN_MAX_SPEED_RANGE = "within_max_speed_range";
