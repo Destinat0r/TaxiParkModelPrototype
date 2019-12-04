@@ -35,4 +35,11 @@ public class Truck extends Car {
     public void setPayload(int payload) {
         this.payload = payload;
     }
+
+    @Override public String toString() {
+        return "Truck{" + "duty=" + duty + ", payload=" + payload + "id=" + super.getId() + ", vendor='" + super.getVendor()
+                       + '\'' + ", model='" + super.getModel()+ '\''
+                       + ", year=" + super.getYear() + ", color=" + super.getColor() + ", maxSpeed=" + super.getMaxSpeed()
+                       + ", fuelConsumption=" + super.getFuelConsumption() + ", value=" + getValue() + '}';
+    }
 }
