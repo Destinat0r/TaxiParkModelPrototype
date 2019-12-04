@@ -17,16 +17,7 @@ public class View {
 
     public void printAllCars(List<Car> cars) {
         for (Car car : cars) {
-            emulateLoading(300);
             printCar(car);
-        }
-    }
-
-    private void emulateLoading(int ms) {
-        try {
-            Thread.sleep(ms);
-        } catch (InterruptedException ex) {
-
         }
     }
 
@@ -67,16 +58,17 @@ public class View {
             builder.append(getFromResources(LocaleConstants.TRUCK));
         }
 
-        builder.append(" [ ").append(getFromResources(LocaleConstants.LICENSE_PLATE)).append(colon).append(car.getLicensePlate())
-                .append(divider).append(getFromResources(LocaleConstants.VENDOR)).append(colon).append(car.getVendor())
-                .append(divider).append(getFromResources(LocaleConstants.MODEL)).append(colon).append(car.getModel())
-                .append(divider);
+        builder.append(" [ ").append(getFromResources(LocaleConstants.LICENSE_PLATE)).append(colon)
+                .append(car.getLicensePlate()).append(divider).append(getFromResources(LocaleConstants.VENDOR))
+                .append(colon).append(car.getVendor()).append(divider).append(getFromResources(LocaleConstants.MODEL))
+                .append(colon).append(car.getModel()).append(divider);
 
         if (isPassenger) {
             PassengerCar passengerCar = (PassengerCar) car;
             builder.append(getFromResources(LocaleConstants.BODY)).append(colon).append(passengerCar.getBody())
-                    .append(divider);
-        } else {
+                    .append(divider).append(getFromResources(LocaleConstants.PASSENGERS_AMOUNT)).append(colon)
+                    .append(passengerCar.getPassengersAmount()).append(divider);
+        } else{
             Truck truck = (Truck) car;
             builder.append(getFromResources(LocaleConstants.DUTY)).append(colon).append(truck.getDuty()).append(divider)
                     .append(getFromResources(LocaleConstants.PAYLOAD)).append(colon).append(truck.getPayload())
