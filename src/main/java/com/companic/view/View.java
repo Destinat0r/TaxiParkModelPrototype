@@ -61,17 +61,22 @@ public class View {
 
         boolean isPassenger = Car.class.getClass().equals("PassengerCar");
 
+        if (isPassenger) {
+            builder.append(getFromResources(LocaleConstants.PASSENGER_CAR));
+        } else{
+            builder.append(getFromResources(LocaleConstants.TRUCK));
+        }
 
-        builder.append(getFromResources(LocaleConstants.CAR)).append(" [ ").append(getFromResources(LocaleConstants.ID))
-                .append(colon).append(car.getId()).append(divider).append(getFromResources(LocaleConstants.VENDOR))
-                .append(colon).append(car.getVendor()).append(divider).append(getFromResources(LocaleConstants.MODEL))
-                .append(colon).append(car.getModel()).append(divider);
+        builder.append(" [ ").append(getFromResources(LocaleConstants.ID)).append(colon).append(car.getId())
+                .append(divider).append(getFromResources(LocaleConstants.VENDOR)).append(colon).append(car.getVendor())
+                .append(divider).append(getFromResources(LocaleConstants.MODEL)).append(colon).append(car.getModel())
+                .append(divider);
 
         if (isPassenger) {
             PassengerCar passengerCar = (PassengerCar) car;
             builder.append(getFromResources(LocaleConstants.BODY)).append(colon).append(passengerCar.getBody())
                     .append(divider);
-        } else {
+        } else{
             Truck truck = (Truck) car;
             builder.append(getFromResources(LocaleConstants.DUTY)).append(colon).append(truck.getDuty()).append(divider)
                     .append(getFromResources(LocaleConstants.PAYLOAD)).append(colon).append(truck.getPayload())
@@ -80,9 +85,10 @@ public class View {
 
         builder.append(getFromResources(LocaleConstants.YEAR)).append(colon).append(car.getYear()).append(divider)
                 .append(getFromResources(LocaleConstants.COLOR)).append(colon).append(car.getColor()).append(divider)
-                .append(getFromResources(LocaleConstants.MAX_SPEED)).append(colon).append(car.getMaxSpeed()).append(divider)
-                .append(getFromResources(LocaleConstants.FUEL)).append(colon).append(car.getFuelConsumption()).append(divider)
-                .append(getFromResources(LocaleConstants.VALUE)).append(colon).append(car.getValue()).append(" ]");
+                .append(getFromResources(LocaleConstants.MAX_SPEED)).append(colon).append(car.getMaxSpeed())
+                .append(divider).append(getFromResources(LocaleConstants.FUEL)).append(colon)
+                .append(car.getFuelConsumption()).append(divider).append(getFromResources(LocaleConstants.VALUE))
+                .append(colon).append(car.getValue()).append(" ]");
 
         print(builder.toString());
     }
