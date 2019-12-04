@@ -2,6 +2,7 @@ package com.companic.view;
 
 import com.companic.model.entity.Car;
 import com.companic.model.entity.PassengerCar;
+import com.companic.model.entity.Truck;
 import com.companic.util.ResourceManager;
 
 import java.util.List;
@@ -30,7 +31,7 @@ public class View {
     }
 
     public void printTotalValue(int value) {
-        print(getFromResources(Constants.TOTAL_VALUE));
+        print(getFromResources(LocaleConstants.TOTAL_VALUE));
         print("" + value);
     }
 
@@ -39,16 +40,16 @@ public class View {
     }
 
     public void printWelcome() {
-        print(getFromResources(Constants.WELCOME));
+        print(getFromResources(LocaleConstants.WELCOME));
     }
 
     public void printSortedByFuelConsumptionAsc(List<Car> cars) {
-        print(getFromResources(Constants.SORT_BY_FUEL_CONSUMPTION_ASC));
+        print(getFromResources(LocaleConstants.SORT_BY_FUEL_CONSUMPTION_ASC));
         printAllCars(cars);
     }
 
     public void printCarsWithinSpeedRange(int min, int max, List<Car> cars) {
-        String message = getFromResources(Constants.WITHIN_MAX_SPEED_RANGE);
+        String message = getFromResources(LocaleConstants.WITHIN_MAX_SPEED_RANGE);
         System.out.printf(message, min, max);
         printAllCars(cars);
     }
@@ -57,16 +58,31 @@ public class View {
         StringBuilder builder = new StringBuilder(200);
         String colon = ": ";
         String divider = ", ";
-        builder.append(getFromResources(Constants.CAR))
-                .append(" [ ").append(getFromResources(Constants.ID)).append(colon).append(car.getId()).append(divider)
-                .append(getFromResources(Constants.VENDOR)).append(colon).append(car.getVendor()).append(divider)
-                .append(getFromResources(Constants.MODEL)).append(colon).append(car.getModel()).append(divider)
-                //.append(getFromResources(Constants.BODY)).append(colon).append(car.getBody()).append(divider)
-                .append(getFromResources(Constants.YEAR)).append(colon).append(car.getYear()).append(divider)
-                .append(getFromResources(Constants.COLOR)).append(colon).append(car.getColor()).append(divider)
-                .append(getFromResources(Constants.MAX_SPEED)).append(colon).append(car.getMaxSpeed()).append(divider)
-                .append(getFromResources(Constants.FUEL)).append(colon).append(car.getFuelConsumption()).append(divider)
-                .append(getFromResources(Constants.VALUE)).append(colon).append(car.getValue()).append(" ]");
+
+        boolean isPassenger = Car.class.getClass().equals("PassengerCar");
+
+
+        builder.append(getFromResources(LocaleConstants.CAR)).append(" [ ").append(getFromResources(LocaleConstants.ID))
+                .append(colon).append(car.getId()).append(divider).append(getFromResources(LocaleConstants.VENDOR))
+                .append(colon).append(car.getVendor()).append(divider).append(getFromResources(LocaleConstants.MODEL))
+                .append(colon).append(car.getModel()).append(divider);
+
+        if (isPassenger) {
+            PassengerCar passengerCar = (PassengerCar) car;
+            builder.append(getFromResources(LocaleConstants.BODY)).append(colon).append(passengerCar.getBody())
+                    .append(divider);
+        } else {
+            Truck truck = (Truck) car;
+            builder.append(getFromResources(LocaleConstants.DUTY)).append(colon).append(truck.getDuty()).append(divider)
+                    .append(getFromResources(LocaleConstants.PAYLOAD)).append(colon).append(truck.getPayload())
+                    .append(divider);
+        }
+
+        builder.append(getFromResources(LocaleConstants.YEAR)).append(colon).append(car.getYear()).append(divider)
+                .append(getFromResources(LocaleConstants.COLOR)).append(colon).append(car.getColor()).append(divider)
+                .append(getFromResources(LocaleConstants.MAX_SPEED)).append(colon).append(car.getMaxSpeed()).append(divider)
+                .append(getFromResources(LocaleConstants.FUEL)).append(colon).append(car.getFuelConsumption()).append(divider)
+                .append(getFromResources(LocaleConstants.VALUE)).append(colon).append(car.getValue()).append(" ]");
 
         print(builder.toString());
     }

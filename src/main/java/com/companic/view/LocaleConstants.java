@@ -1,6 +1,6 @@
 package com.companic.view;
 
-public interface Constants {
+public interface LocaleConstants {
     String WELCOME = "welcome";
     String VIEW_ALL = "view_all";
     String SORT_BY_FUEL_CONSUMPTION_ASC = "sort_by_fuel_consumption_asc";
