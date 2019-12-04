@@ -1,4 +1,4 @@
-package com.companic.model.entities.car;
+package com.companic.model.entity.car;
 
 import java.time.Year;
 import java.util.Objects;

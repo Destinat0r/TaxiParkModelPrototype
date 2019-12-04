@@ -1,6 +1,6 @@
-package com.companic.model.entities;
+package com.companic.model.entity;
 
-import com.companic.model.entities.car.Car;
+import com.companic.model.entity.car.Car;
 
 import java.util.*;
 

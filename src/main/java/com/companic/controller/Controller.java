@@ -1,18 +1,18 @@
 package com.companic.controller;
 
-import com.companic.model.entities.car.Color;
-import com.companic.model.entities.car.passenger_car.Body;
-import com.companic.model.entities.*;
-import com.companic.model.entities.car.passenger_car.PassengerCar;
-import com.companic.model.entities.car.truck.Duty;
-import com.companic.model.entities.car.truck.Truck;
+import com.companic.model.entity.car.Color;
+import com.companic.model.entity.car.passenger_car.Body;
+import com.companic.model.entity.*;
+import com.companic.model.entity.car.passenger_car.PassengerCar;
+import com.companic.model.entity.car.truck.Duty;
+import com.companic.model.entity.car.truck.Truck;
 import com.companic.locale_util.ResourceManager;
 import com.companic.view.View;
 
 import java.util.Locale;
 
-import static com.companic.model.entities.car.passenger_car.PassengerCarBuilder.passengerCar;
-import static com.companic.model.entities.car.truck.TruckBuilder.truck;
+import static com.companic.model.entity.car.passenger_car.PassengerCarBuilder.passengerCar;
+import static com.companic.model.entity.car.truck.TruckBuilder.truck;
 
 public class Controller {
 
@@ -23,7 +23,7 @@ public class Controller {
     }
 
     public void run() {
-        ResourceManager.INSTANCE.changeResource(new Locale("en"));
+        ResourceManager.INSTANCE.changeResource(new Locale("uk"));
 
         PassengerCar car1 = passengerCar().withLicense("12GH1G5").withVendor("Toyota").withModel("Auris").withYear(2008).withBody(Body.HATCHBACK)
                            .withColor(Color.GREEN).withMaxSpeed(250).withFuelConsumption(4).withValue(2000).withPassengersAmount(4).build();

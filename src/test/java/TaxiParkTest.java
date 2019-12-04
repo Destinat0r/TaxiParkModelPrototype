@@ -1,17 +1,17 @@
-import com.companic.model.entities.*;
-import com.companic.model.entities.car.Car;
-import com.companic.model.entities.car.Color;
-import com.companic.model.entities.car.passenger_car.Body;
-import com.companic.model.entities.car.passenger_car.PassengerCar;
-import com.companic.model.entities.car.truck.Duty;
-import com.companic.model.entities.car.truck.Truck;
+import com.companic.model.entity.*;
+import com.companic.model.entity.car.Car;
+import com.companic.model.entity.car.Color;
+import com.companic.model.entity.car.passenger_car.Body;
+import com.companic.model.entity.car.passenger_car.PassengerCar;
+import com.companic.model.entity.car.truck.Duty;
+import com.companic.model.entity.car.truck.Truck;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.List;
 
-import static com.companic.model.entities.car.passenger_car.PassengerCarBuilder.passengerCar;
-import static com.companic.model.entities.car.truck.TruckBuilder.truck;
+import static com.companic.model.entity.car.passenger_car.PassengerCarBuilder.passengerCar;
+import static com.companic.model.entity.car.truck.TruckBuilder.truck;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 

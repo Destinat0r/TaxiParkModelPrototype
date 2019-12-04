@@ -1,6 +1,6 @@
-package com.companic.model.entities.car.passenger_car;
+package com.companic.model.entity.car.passenger_car;
 
-import com.companic.model.entities.car.Car;
+import com.companic.model.entity.car.Car;
 
 import java.util.Objects;
 
