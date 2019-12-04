@@ -1,6 +1,4 @@
-package com.companic.model;
-
-import com.companic.model.entities.Car;
+package com.companic.model.entities.car;
 
 public abstract class CarBuilder<B extends CarBuilder> {
     private String licensePlate;

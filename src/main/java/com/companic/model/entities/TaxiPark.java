@@ -1,5 +1,7 @@
 package com.companic.model.entities;
 
+import com.companic.model.entities.car.Car;
+
 import java.util.*;
 
 public class TaxiPark {

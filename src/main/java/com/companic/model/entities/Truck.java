@@ -1,5 +1,7 @@
 package com.companic.model.entities;
 
+import com.companic.model.entities.car.Car;
+
 public class Truck extends Car {
     private Duty duty;
     private int payload;

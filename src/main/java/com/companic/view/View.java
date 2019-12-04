@@ -1,6 +1,6 @@
 package com.companic.view;
 
-import com.companic.model.entities.Car;
+import com.companic.model.entities.car.Car;
 import com.companic.model.entities.PassengerCar;
 import com.companic.model.entities.Truck;
 import com.companic.util.ResourceManager;

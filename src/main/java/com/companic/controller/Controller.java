@@ -1,6 +1,6 @@
 package com.companic.controller;
 
-import com.companic.model.Color;
+import com.companic.model.entities.car.Color;
 import com.companic.model.Body;
 import com.companic.model.entities.*;
 import com.companic.util.ResourceManager;

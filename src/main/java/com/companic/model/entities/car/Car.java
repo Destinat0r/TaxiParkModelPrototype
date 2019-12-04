@@ -1,7 +1,4 @@
-package com.companic.model.entities;
-
-import com.companic.model.CarBuilder;
-import com.companic.model.Color;
+package com.companic.model.entities.car;
 
 import java.time.Year;
 
