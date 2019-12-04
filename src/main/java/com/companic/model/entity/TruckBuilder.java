@@ -1,6 +1,4 @@
-package com.companic.model.entity.car.truck;
-
-import com.companic.model.entity.car.CarBuilder;
+package com.companic.model.entity;
 
 public class TruckBuilder extends CarBuilder<TruckBuilder> {
     private Duty duty;

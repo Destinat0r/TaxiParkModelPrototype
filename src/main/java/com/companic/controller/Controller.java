@@ -1,18 +1,18 @@
 package com.companic.controller;
 
-import com.companic.model.entity.car.Color;
-import com.companic.model.entity.car.passenger_car.Body;
+import com.companic.model.entity.Color;
+import com.companic.model.entity.Body;
 import com.companic.model.entity.*;
-import com.companic.model.entity.car.passenger_car.PassengerCar;
-import com.companic.model.entity.car.truck.Duty;
-import com.companic.model.entity.car.truck.Truck;
+import com.companic.model.entity.PassengerCar;
+import com.companic.model.entity.Duty;
+import com.companic.model.entity.Truck;
 import com.companic.locale_util.ResourceManager;
 import com.companic.view.View;
 
 import java.util.Locale;
 
-import static com.companic.model.entity.car.passenger_car.PassengerCarBuilder.passengerCar;
-import static com.companic.model.entity.car.truck.TruckBuilder.truck;
+import static com.companic.model.entity.PassengerCarBuilder.passengerCar;
+import static com.companic.model.entity.TruckBuilder.truck;
 
 public class Controller {
 

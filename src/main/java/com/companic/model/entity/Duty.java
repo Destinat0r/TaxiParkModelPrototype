@@ -1,4 +1,4 @@
-package com.companic.model.entity.car.truck;
+package com.companic.model.entity;
 
 public enum  Duty {
     LIGHT, MEDIUM, HEAVY

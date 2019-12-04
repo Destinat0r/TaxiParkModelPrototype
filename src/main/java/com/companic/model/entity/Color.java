@@ -1,4 +1,4 @@
-package com.companic.model.entity.car;
+package com.companic.model.entity;
 
 public enum Color {
     WHITE,

@@ -1,4 +1,4 @@
-package com.companic.model.entity.car;
+package com.companic.model.entity;
 
 public abstract class CarBuilder<B extends CarBuilder> {
     private String licensePlate;
