@@ -6,11 +6,14 @@ public interface Constants {
     String SORT_BY_FUEL_CONSUMPTION_ASC = "sort_by_fuel_consumption_asc";
     String TOTAL_VALUE = "total_value";
     String WITHIN_MAX_SPEED_RANGE = "within_max_speed_range";
-    String CAR = "car.car";
+    String PASSENGER_CAR = "car.passenger";
+    String TRUCK = "car.truck";
     String ID = "car.id";
     String VENDOR = "car.vendor";
     String MODEL = "car.model";
     String BODY = "car.passenger.body";
+    String DUTY = "car.truck.duty";
+    String PAYLOAD = "car.truck.payload";
     String YEAR = "car.year";
     String COLOR = "car.color";
     String MAX_SPEED = "car.max_speed";
