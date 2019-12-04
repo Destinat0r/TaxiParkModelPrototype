@@ -1,6 +1,7 @@
 package com.companic.view;
 
 import com.companic.model.entity.Car;
+import com.companic.model.entity.PassengerCar;
 import com.companic.util.ResourceManager;
 
 import java.util.List;
@@ -53,14 +54,21 @@ public class View {
     }
 
     public void printCar(Car car) {
-        print(getFromResources(Constants.CAR) + " [ " + getFromResources(Constants.ID) + ": " + car.getId() + ", "
-                       + getFromResources(Constants.VENDOR)  + ": " + car.getVendor() +  ", "
-                       + getFromResources(Constants.MODEL) + ": " + car.getModel() + ", " + getFromResources(Constants.TYPE) + ": "
-                       + ", " + getFromResources(Constants.YEAR) + ": " + car.getYear() + ", "+ getFromResources(Constants.COLOR)
-                       + ": " + car.getColor() + ", " + getFromResources(Constants.MAX_SPEED) + ": " + car.getMaxSpeed() + ", "
-                       + getFromResources(Constants.FUEL) + ": " + car.getFuelConsumption() + ", " + getFromResources(Constants.VALUE)
-                       + ": " + car.getValue() + " ]");
+        StringBuilder builder = new StringBuilder(200);
+        String colon = ": ";
+        String divider = ", ";
+        builder.append(getFromResources(Constants.CAR))
+                .append(" [ ").append(getFromResources(Constants.ID)).append(colon).append(car.getId()).append(divider)
+                .append(getFromResources(Constants.VENDOR)).append(colon).append(car.getVendor()).append(divider)
+                .append(getFromResources(Constants.MODEL)).append(colon).append(car.getModel()).append(divider)
+                //.append(getFromResources(Constants.BODY)).append(colon).append(car.getBody()).append(divider)
+                .append(getFromResources(Constants.YEAR)).append(colon).append(car.getYear()).append(divider)
+                .append(getFromResources(Constants.COLOR)).append(colon).append(car.getColor()).append(divider)
+                .append(getFromResources(Constants.MAX_SPEED)).append(colon).append(car.getMaxSpeed()).append(divider)
+                .append(getFromResources(Constants.FUEL)).append(colon).append(car.getFuelConsumption()).append(divider)
+                .append(getFromResources(Constants.VALUE)).append(colon).append(car.getValue()).append(" ]");
 
+        print(builder.toString());
     }
 
     private String getFromResources(String prop) {
