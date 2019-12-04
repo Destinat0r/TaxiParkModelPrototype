@@ -56,7 +56,7 @@ public class View {
         print(getFromResources(Constants.CAR) + " [ " + getFromResources(Constants.ID) + ": " + car.getId() + ", "
                        + getFromResources(Constants.VENDOR)  + ": " + car.getVendor() +  ", "
                        + getFromResources(Constants.MODEL) + ": " + car.getModel() + ", " + getFromResources(Constants.TYPE) + ": "
-                       + car.getType()  + ", " + getFromResources(Constants.YEAR) + ": " + car.getYear() + ", "+ getFromResources(Constants.COLOR)
+                       + ", " + getFromResources(Constants.YEAR) + ": " + car.getYear() + ", "+ getFromResources(Constants.COLOR)
                        + ": " + car.getColor() + ", " + getFromResources(Constants.MAX_SPEED) + ": " + car.getMaxSpeed() + ", "
                        + getFromResources(Constants.FUEL) + ": " + car.getFuelConsumption() + ", " + getFromResources(Constants.VALUE)
                        + ": " + car.getValue() + " ]");
