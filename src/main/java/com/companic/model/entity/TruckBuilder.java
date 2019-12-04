@@ -2,7 +2,7 @@ package com.companic.model.entity;
 
 import com.companic.model.CarBuilder;
 
-public class TruckBuilder extends CarBuilder {
+public class TruckBuilder extends CarBuilder<TruckBuilder> {
     private Duty duty;
     private int payload;
 
