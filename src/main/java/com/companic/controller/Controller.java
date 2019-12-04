@@ -3,13 +3,15 @@ package com.companic.controller;
 import com.companic.model.entities.car.Color;
 import com.companic.model.Body;
 import com.companic.model.entities.*;
+import com.companic.model.entities.car.truck.Duty;
+import com.companic.model.entities.car.truck.Truck;
 import com.companic.util.ResourceManager;
 import com.companic.view.View;
 
 import java.util.Locale;
 
 import static com.companic.model.entities.PassengerCarBuilder.passengerCar;
-import static com.companic.model.entities.TruckBuilder.truck;
+import static com.companic.model.entities.car.truck.TruckBuilder.truck;
 
 public class Controller {
 
