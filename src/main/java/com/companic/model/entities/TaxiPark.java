@@ -10,12 +10,8 @@ public class TaxiPark {
     public TaxiPark(Car ...cars) {
         this.cars = new ArrayList<>();
         for (Car car : cars) {
-            addCar(car);
+            this.cars.add(car);
         }
-    }
-
-    public void addCar(Car car) {
-        cars.add(car);
     }
 
     public int calculateTotalValue() {
