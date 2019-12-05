@@ -1,4 +1,4 @@
-package com.companic.locale_util;
+package com.companic.utils;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
