@@ -3,7 +3,7 @@ package com.companic.view;
 import com.companic.model.entity.Car;
 import com.companic.model.entity.PassengerCar;
 import com.companic.model.entity.Truck;
-import com.companic.locale_util.ResourceManager;
+import com.companic.utils.ResourceManager;
 
 import java.util.List;
 
