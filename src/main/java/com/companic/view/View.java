@@ -89,7 +89,7 @@ public class View {
         if (isPassenger) {
             PassengerCar passengerCar = (PassengerCar) car;
             builder.append(getFromResources(LocaleConstants.BODY)).append(key_value_divider)
-                    .append(passengerCar.getBody()).append(divider)
+                    .append(getFromResources(getBodyTypeName(passengerCar))).append(divider)
                     .append(getFromResources(LocaleConstants.PASSENGERS_AMOUNT)).append(key_value_divider)
                     .append(passengerCar.getPassengersAmount()).append(divider);
         } else{
@@ -98,6 +98,10 @@ public class View {
                     .append(divider).append(getFromResources(LocaleConstants.PAYLOAD)).append(key_value_divider)
                     .append(truck.getPayload()).append(divider);
         }
+    }
+
+    private String getBodyTypeName(PassengerCar passengerCar) {
+        return LocaleConstants.BODY + "." + passengerCar.getBody().toString().toLowerCase();
     }
 
     private boolean appendCorrectCarType(Car car, StringBuilder builder) {
