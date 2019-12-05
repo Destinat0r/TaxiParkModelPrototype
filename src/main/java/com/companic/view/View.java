@@ -52,27 +52,27 @@ public class View {
     private String generateInfoOutputFor(Car car) {
         StringBuilder builder = new StringBuilder(200);
 
-        String key_value_divider = getFromResources(LocaleConstants.KEY_VALUE_DIVIDER);
+        String keyValueDivider = getFromResources(LocaleConstants.KEY_VALUE_DIVIDER);
         String divider = getFromResources(LocaleConstants.DIVIDER);
 
         appendCorrectCarType(car, builder);
 
         builder.append(getFromResources(LocaleConstants.LEFT_BORDER))
-                .append(getFromResources(LocaleConstants.LICENSE_PLATE)).append(key_value_divider)
+                .append(getFromResources(LocaleConstants.LICENSE_PLATE)).append(keyValueDivider)
                 .append(car.getLicensePlate()).append(divider).append(getFromResources(LocaleConstants.VENDOR))
-                .append(key_value_divider).append(car.getVendor()).append(divider)
-                .append(getFromResources(LocaleConstants.MODEL)).append(key_value_divider).append(car.getModel())
+                .append(keyValueDivider).append(car.getVendor()).append(divider)
+                .append(getFromResources(LocaleConstants.MODEL)).append(keyValueDivider).append(car.getModel())
                 .append(divider);
 
         appendSpecificInfo(car, builder);
 
-        builder.append(getFromResources(LocaleConstants.YEAR)).append(key_value_divider).append(car.getYear())
-                .append(divider).append(getFromResources(LocaleConstants.COLOR)).append(key_value_divider)
+        builder.append(getFromResources(LocaleConstants.YEAR)).append(keyValueDivider).append(car.getYear())
+                .append(divider).append(getFromResources(LocaleConstants.COLOR)).append(keyValueDivider)
                 .append(getFromResources(getColorResourceName(car))).append(divider)
-                .append(getFromResources(LocaleConstants.MAX_SPEED)).append(key_value_divider).append(car.getMaxSpeed())
-                .append(divider).append(getFromResources(LocaleConstants.FUEL)).append(key_value_divider)
+                .append(getFromResources(LocaleConstants.MAX_SPEED)).append(keyValueDivider).append(car.getMaxSpeed())
+                .append(divider).append(getFromResources(LocaleConstants.FUEL)).append(keyValueDivider)
                 .append(car.getFuelConsumption()).append(divider).append(getFromResources(LocaleConstants.VALUE))
-                .append(key_value_divider).append(car.getValue())
+                .append(keyValueDivider).append(car.getValue())
                 .append(getFromResources(LocaleConstants.RIGHT_BORDER));
 
         return builder.toString();
@@ -84,20 +84,20 @@ public class View {
     }
 
     private void appendSpecificInfo(Car car, StringBuilder builder) {
-        String key_value_divider = getFromResources(LocaleConstants.KEY_VALUE_DIVIDER);
+        String keyValueDivider = getFromResources(LocaleConstants.KEY_VALUE_DIVIDER);
         String divider = getFromResources(LocaleConstants.DIVIDER);
 
         if (car instanceof PassengerCar) {
             PassengerCar passengerCar = (PassengerCar) car;
-            builder.append(getFromResources(LocaleConstants.BODY)).append(key_value_divider)
+            builder.append(getFromResources(LocaleConstants.BODY)).append(keyValueDivider)
                     .append(getFromResources(getBodyTypeName(passengerCar))).append(divider)
-                    .append(getFromResources(LocaleConstants.PASSENGERS_AMOUNT)).append(key_value_divider)
+                    .append(getFromResources(LocaleConstants.PASSENGERS_AMOUNT)).append(keyValueDivider)
                     .append(passengerCar.getPassengersAmount()).append(divider);
         } else if (car instanceof Truck) {
             Truck truck = (Truck) car;
-            builder.append(getFromResources(LocaleConstants.DUTY)).append(key_value_divider)
+            builder.append(getFromResources(LocaleConstants.DUTY)).append(keyValueDivider)
                     .append(getFromResources(getDutyTypeName(truck))).append(divider)
-                    .append(getFromResources(LocaleConstants.PAYLOAD)).append(key_value_divider)
+                    .append(getFromResources(LocaleConstants.PAYLOAD)).append(keyValueDivider)
                     .append(truck.getPayload()).append(divider);
         }
     }
