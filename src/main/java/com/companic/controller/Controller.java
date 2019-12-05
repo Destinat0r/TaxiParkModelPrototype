@@ -2,17 +2,17 @@ package com.companic.controller;
 
 import com.companic.model.entity.Color;
 import com.companic.model.entity.Body;
-import com.companic.model.entity.*;
 import com.companic.model.entity.PassengerCar;
-import com.companic.model.entity.Duty;
-import com.companic.model.entity.Truck;
-import com.companic.locale_util.ResourceManager;
+import com.companic.utils.ResourceManager;
 import com.companic.view.View;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
+import java.io.*;
+import java.util.Arrays;
 import java.util.Locale;
 
 import static com.companic.model.entity.PassengerCarBuilder.passengerCar;
-import static com.companic.model.entity.TruckBuilder.truck;
 
 public class Controller {
 
@@ -25,11 +25,13 @@ public class Controller {
     public void run() {
         ResourceManager.INSTANCE.changeLocale(new Locale("uk"));
 
-        PassengerCar car1 = passengerCar().withLicense("12GH1G5").withVendor("Toyota").withModel("Auris").withYear(2008).withBody(Body.HATCHBACK)
-                           .withColor(Color.GREEN).withMaxSpeed(250).withFuelConsumption(4).withValue(2000).withPassengersAmount(4).build();
+        PassengerCar car1 = passengerCar().withLicense("12GH1G5").withVendor("Toyota").withModel("Auris").withYear(2008)
+                                    .withBody(Body.HATCHBACK).withColor(Color.GREEN).withMaxSpeed(250)
+                                    .withFuelConsumption(4).withValue(2000).withPassengersAmount(4).build();
 
-        PassengerCar car2 = passengerCar().withLicense("G40B0SQ").withVendor("Mercedes").withModel("E Class").withYear(2003).withBody(Body.SEDAN)
-                           .withColor(Color.GREY).withMaxSpeed(240).withFuelConsumption(7).withValue(3800).withPassengersAmount(4).build();
+        PassengerCar car2 = passengerCar().withLicense("G40B0SQ").withVendor("Mercedes").withModel("E Class")
+                                    .withYear(2003).withBody(Body.SEDAN).withColor(Color.GREY).withMaxSpeed(240)
+                                    .withFuelConsumption(7).withValue(3800).withPassengersAmount(4).build();
 
         PassengerCar car3 = passengerCar().withLicense("7FOIJ4M").withVendor("Honda").withModel("Fit").withYear(2004).withBody(Body.HATCHBACK)
                            .withColor(Color.YELLOW).withMaxSpeed(200).withFuelConsumption(3).withValue(4000).withPassengersAmount(4).build();
@@ -54,25 +56,46 @@ public class Controller {
 
         PassengerCar car10 = passengerCar().withLicense("23RFS1X").withVendor("Mitsubishi").withModel("Colt Plus").withYear(2006).withBody(Body.HATCHBACK)
                             .withColor(Color.VIOLET).withMaxSpeed(265).withFuelConsumption(6).withPassengersAmount(4).withValue(1900).build();
+        //
+        //        Truck car11 = truck().withVendor("Nissan").withLicense("9FH4SL9").withModel("Lafesta").withYear(2008).withDuty(Duty.LIGHT).withPayload(2000)
+        //                       .withColor(Color.GREEN).withMaxSpeed(150).withFuelConsumption(10).withValue(7500).build();
+        //
+        //        Truck car12 = truck().withVendor("Nissan").withLicense("4RSL95H").withModel("Lafesta").withYear(2008).withDuty(Duty.MEDIUM).withPayload(5000)
+        //                       .withColor(Color.BLUE).withMaxSpeed(140).withFuelConsumption(15).withValue(17500).build();;
+        //
+        //
+        //        TaxiPark taxiPark = new TaxiPark(car1, car2, car3, car4, car5, car6, car7, car8, car9, car10, car11, car12);
+        //
+        //        view.printWelcome();
+        //        view.print("");
+        //        view.printAllCars(taxiPark.getCars());
+        //        view.print("");
+        //        view.printSortedByFuelConsumptionAsc(taxiPark.sortByFuelConsumptionAsc());
+        //        view.print("");
+        //        view.printTotalValue(taxiPark.calculateTotalValue());
+        //        view.print("");
+        //        view.printCarsWithinSpeedRange(130, 260, taxiPark.findCarsWithinGivenMaxSpeedRange(130, 260));
 
-        Truck car11 = truck().withVendor("Nissan").withLicense("9FH4SL9").withModel("Lafesta").withYear(2008).withDuty(Duty.LIGHT).withPayload(2000)
-                       .withColor(Color.GREEN).withMaxSpeed(150).withFuelConsumption(10).withValue(7500).build();
-
-        Truck car12 = truck().withVendor("Nissan").withLicense("4RSL95H").withModel("Lafesta").withYear(2008).withDuty(Duty.MEDIUM).withPayload(5000)
-                       .withColor(Color.BLUE).withMaxSpeed(140).withFuelConsumption(15).withValue(17500).build();;
+//        PassengerCar[] cars = {car1, car2, car3, car4, car5, car6, car7, car8, car9, car10};
 
 
-        TaxiPark taxiPark = new TaxiPark(car1, car2, car3, car4, car5, car6, car7, car8, car9, car10, car11, car12);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        view.printWelcome();
-        view.print("");
-        view.printAllCars(taxiPark.getCars());
-        view.print("");
-        view.printSortedByFuelConsumptionAsc(taxiPark.sortByFuelConsumptionAsc());
-        view.print("");
-        view.printTotalValue(taxiPark.calculateTotalValue());
-        view.print("");
-        view.printCarsWithinSpeedRange(130, 260, taxiPark.findCarsWithinGivenMaxSpeedRange(130, 260));
 
-    }
+//        try (FileWriter writer = new FileWriter("passenger_cars.json")) {
+//                gson.toJson(cars, writer);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+        PassengerCar[] cars = null;
+
+        try (Reader reader = new FileReader("passenger_cars.json")) {
+            cars = gson.fromJson(reader, PassengerCar[].class);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        view.printAllCars(Arrays.asList(cars));
+}
+
 }
