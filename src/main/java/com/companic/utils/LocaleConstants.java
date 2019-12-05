@@ -1,4 +1,4 @@
-package com.companic.view;
+package com.companic.utils;
 
 public interface LocaleConstants {
     String WELCOME = "welcome";
