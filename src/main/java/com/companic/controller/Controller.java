@@ -23,7 +23,7 @@ public class Controller {
     }
 
     public void run() {
-        ResourceManager.INSTANCE.changeResource(new Locale("uk"));
+        ResourceManager.INSTANCE.changeLocale(new Locale("uk"));
 
         PassengerCar car1 = passengerCar().withLicense("12GH1G5").withVendor("Toyota").withModel("Auris").withYear(2008).withBody(Body.HATCHBACK)
                            .withColor(Color.GREEN).withMaxSpeed(250).withFuelConsumption(4).withValue(2000).withPassengersAmount(4).build();

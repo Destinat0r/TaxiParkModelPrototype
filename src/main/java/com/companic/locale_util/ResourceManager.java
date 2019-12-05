@@ -13,7 +13,7 @@ public enum ResourceManager {
         resourceBundle = ResourceBundle.getBundle(resourceName, new Locale("en"), new UTF8Control());
     }
 
-    public void changeResource(Locale locale) {
+    public void changeLocale(Locale locale) {
         resourceBundle = ResourceBundle.getBundle(resourceName, locale, new UTF8Control());
     }
 
