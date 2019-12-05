@@ -94,10 +94,15 @@ public class View {
                     .append(passengerCar.getPassengersAmount()).append(divider);
         } else{
             Truck truck = (Truck) car;
-            builder.append(getFromResources(LocaleConstants.DUTY)).append(key_value_divider).append(truck.getDuty())
-                    .append(divider).append(getFromResources(LocaleConstants.PAYLOAD)).append(key_value_divider)
+            builder.append(getFromResources(LocaleConstants.DUTY)).append(key_value_divider)
+                    .append(getFromResources(getDutyTypeName(truck))).append(divider)
+                    .append(getFromResources(LocaleConstants.PAYLOAD)).append(key_value_divider)
                     .append(truck.getPayload()).append(divider);
         }
+    }
+
+    private String getDutyTypeName(Truck truck) {
+        return LocaleConstants.DUTY + "." + truck.getDuty().toString().toLowerCase();
     }
 
     private String getBodyTypeName(PassengerCar passengerCar) {
