@@ -55,7 +55,7 @@ public class View {
         String key_value_divider = getFromResources(LocaleConstants.KEY_VALUE_DIVIDER);
         String divider = getFromResources(LocaleConstants.DIVIDER);
 
-        boolean isPassenger = appendCorrectCarType(car, builder);
+        appendCorrectCarType(car, builder);
 
         builder.append(getFromResources(LocaleConstants.LEFT_BORDER))
                 .append(getFromResources(LocaleConstants.LICENSE_PLATE)).append(key_value_divider)
@@ -64,7 +64,7 @@ public class View {
                 .append(getFromResources(LocaleConstants.MODEL)).append(key_value_divider).append(car.getModel())
                 .append(divider);
 
-        appendSpecificInfo(car, builder, isPassenger);
+        appendSpecificInfo(car, builder);
 
         builder.append(getFromResources(LocaleConstants.YEAR)).append(key_value_divider).append(car.getYear())
                 .append(divider).append(getFromResources(LocaleConstants.COLOR)).append(key_value_divider)
@@ -82,17 +82,17 @@ public class View {
         return LocaleConstants.COLOR + "." + car.getColor().toString().toLowerCase();
     }
 
-    private void appendSpecificInfo(Car car, StringBuilder builder, boolean isPassenger) {
+    private void appendSpecificInfo(Car car, StringBuilder builder) {
         String key_value_divider = getFromResources(LocaleConstants.KEY_VALUE_DIVIDER);
         String divider = getFromResources(LocaleConstants.DIVIDER);
 
-        if (isPassenger) {
+        if (car instanceof PassengerCar) {
             PassengerCar passengerCar = (PassengerCar) car;
             builder.append(getFromResources(LocaleConstants.BODY)).append(key_value_divider)
                     .append(getFromResources(getBodyTypeName(passengerCar))).append(divider)
                     .append(getFromResources(LocaleConstants.PASSENGERS_AMOUNT)).append(key_value_divider)
                     .append(passengerCar.getPassengersAmount()).append(divider);
-        } else{
+        } else if (car instanceof Truck) {
             Truck truck = (Truck) car;
             builder.append(getFromResources(LocaleConstants.DUTY)).append(key_value_divider)
                     .append(getFromResources(getDutyTypeName(truck))).append(divider)
@@ -109,15 +109,12 @@ public class View {
         return LocaleConstants.BODY + "." + passengerCar.getBody().toString().toLowerCase();
     }
 
-    private boolean appendCorrectCarType(Car car, StringBuilder builder) {
-        boolean isPassenger = car instanceof PassengerCar;
-
-        if (isPassenger) {
+    private void appendCorrectCarType(Car car, StringBuilder builder) {
+        if (car instanceof PassengerCar) {
             builder.append(getFromResources(LocaleConstants.PASSENGER_CAR));
-        } else{
+        } else if (car instanceof Truck){
             builder.append(getFromResources(LocaleConstants.TRUCK));
         }
-        return isPassenger;
     }
 
     private String getFromResources(String prop) {
