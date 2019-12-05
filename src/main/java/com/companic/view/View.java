@@ -79,7 +79,8 @@ public class View {
     }
 
     private String getColorResourceName(Car car) {
-        return LocaleConstants.COLOR + "." + car.getColor().toString().toLowerCase();
+        return new StringBuilder(LocaleConstants.COLOR).append(".")
+                       .append(car.getColor().toString().toLowerCase()).toString();
     }
 
     private void appendSpecificInfo(Car car, StringBuilder builder) {
@@ -102,11 +103,13 @@ public class View {
     }
 
     private String getDutyTypeName(Truck truck) {
-        return LocaleConstants.DUTY + "." + truck.getDuty().toString().toLowerCase();
+        return new StringBuilder(LocaleConstants.DUTY)
+                       .append(".").append(truck.getDuty().toString().toLowerCase()).toString();
     }
 
     private String getBodyTypeName(PassengerCar passengerCar) {
-        return LocaleConstants.BODY + "." + passengerCar.getBody().toString().toLowerCase();
+        return new StringBuilder(LocaleConstants.BODY).append(".")
+                       .append(passengerCar.getBody().toString().toLowerCase()).toString();
     }
 
     private void appendCorrectCarType(Car car, StringBuilder builder) {
