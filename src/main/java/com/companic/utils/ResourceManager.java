@@ -6,18 +6,25 @@ import java.util.ResourceBundle;
 public enum ResourceManager {
     INSTANCE;
 
-    private ResourceBundle resourceBundle;
-    private final String resourceName = "messages";
+    private ResourceBundle localeBundle;
+    private ResourceBundle configBundle;
+    private final String localeResourceName = "locale";
 
     private ResourceManager() {
-        resourceBundle = ResourceBundle.getBundle(resourceName, new Locale("en"), new UTF8Control());
+        Locale locale = new Locale("en");
+        localeBundle = ResourceBundle.getBundle(localeResourceName, locale, new UTF8Control());
+        configBundle = ResourceBundle.getBundle("config", locale);
     }
 
     public void changeLocale(Locale locale) {
-        resourceBundle = ResourceBundle.getBundle(resourceName, locale, new UTF8Control());
+        localeBundle = ResourceBundle.getBundle(localeResourceName, locale, new UTF8Control());
     }
 
     public String getString(String key) {
-        return resourceBundle.getString(key);
+        return localeBundle.getString(key);
+    }
+
+    public String getParameter(String param) {
+        return configBundle.getString(param);
     }
 }
