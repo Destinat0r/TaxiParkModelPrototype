@@ -59,8 +59,7 @@ public class View {
     }
 
     public void printCarsWithinSpeedRange(int min, int max, List<Car> cars) {
-        String message = getFromResources(LocaleConstants.WITHIN_MAX_SPEED_RANGE);
-        System.out.printf(message, min, max);
+        System.out.printf(getFromResources(LocaleConstants.WITHIN_MAX_SPEED_RANGE), min, max);
         printCars(cars);
     }
 
