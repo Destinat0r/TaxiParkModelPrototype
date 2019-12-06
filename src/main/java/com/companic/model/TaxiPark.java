@@ -1,14 +1,16 @@
-package com.companic.model.entity;
+package com.companic.model;
+
+import com.companic.model.entity.Car;
 
 import java.util.*;
 
 public class TaxiPark {
     private List<Car> cars;
 
-    public TaxiPark(Car ...cars) {
-        this.cars = new ArrayList<>();
-        for (Car car : cars) {
-            this.cars.add(car);
+    public TaxiPark(Car[] ...cars) {
+        this.cars = new ArrayList<Car>();
+        for (Car[] carArray : cars) {
+            this.cars.addAll(Arrays.asList(carArray));
         }
     }
 
