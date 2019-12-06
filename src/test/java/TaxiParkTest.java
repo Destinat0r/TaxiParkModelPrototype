@@ -83,6 +83,10 @@ public class TaxiParkTest {
                 taxiPark.findCarsWithinGivenMaxSpeedRange(150, 245).toArray());
     }
 
+    @Test public void shouldReturnEmptyList__When_No_Cars_in_GivenSpeedRange() {
+        assertArrayEquals(new Car[]{}, new TaxiPark().findCarsWithinGivenMaxSpeedRange(10, 20).toArray());
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void  shouldThrow_IllegalArgumentException_when_Invalid_Args_for_MaxSpeedRange_method() {
         taxiPark.findCarsWithinGivenMaxSpeedRange(200, 100);
