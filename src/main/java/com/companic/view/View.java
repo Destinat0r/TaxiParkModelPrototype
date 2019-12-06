@@ -31,9 +31,11 @@ public class View {
     }
 
     private void printDivider() {
-        print("======================================================================================================="
-                      + "============================================================================================="
-                      + "============================================================\n");
+        String lineDivider = resourceManager.getString(LocaleConstants.LINE_DIVIDER);
+        for (int i = 0; i++ < 300;) {
+            System.out.print(lineDivider);
+        }
+        print("\n");
     }
 
     public void printTotalValue(int value) {
