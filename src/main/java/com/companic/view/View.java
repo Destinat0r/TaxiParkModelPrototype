@@ -31,9 +31,9 @@ public class View {
     }
 
     private void printLineDivider() {
-        String lineDivider = resourceManager.getString(LocaleConstants.LINE_DIVIDER);
+        String lineDividerSymbol = resourceManager.getString(LocaleConstants.LINE_DIVIDER_SYMBOL);
         for (int i = 0; i++ < 300;) {
-            System.out.print(lineDivider);
+            System.out.print(lineDividerSymbol);
         }
         print("\n");
     }
