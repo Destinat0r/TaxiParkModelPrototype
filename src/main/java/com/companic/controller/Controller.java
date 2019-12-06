@@ -20,21 +20,19 @@ public class Controller {
     }
 
     public void run() {
-        resourceManager.changeLocale(new Locale(resourceManager.getParameter(ConfigConstants.LOCALE_CURRENT)));
+        resourceManager.setLocale(new Locale(resourceManager.getParameter(ConfigConstants.LOCALE_CURRENT)));
 
         Truck[] trucks = CarsInitializer.initTrucksFromJsonFile();
         PassengerCar[] cars = CarsInitializer.initPassengerCarsFromJsonFile();
 
         TaxiPark taxiPark = new TaxiPark(cars, trucks);
 
-        view.printWelcome();
-        view.print("");
-        view.printAllCars(taxiPark.getCars());
-        view.print("");
+        view.printInitialProgramInfo(taxiPark.getCars());
+
         view.printSortedByFuelConsumptionAsc(taxiPark.sortByFuelConsumptionAsc());
-        view.print("");
+
         view.printTotalValue(taxiPark.calculateTotalValue());
-        view.print("");
+
         view.printCarsWithinSpeedRange(130, 260, taxiPark.findCarsWithinGivenMaxSpeedRange(130, 260));
     }
 
