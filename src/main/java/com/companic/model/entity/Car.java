@@ -1,5 +1,8 @@
 package com.companic.model.entity;
 
+import com.companic.utils.ConfigConstants;
+import com.companic.utils.ResourceManager;
+
 import java.time.Year;
 import java.util.Objects;
 
@@ -35,7 +38,9 @@ public abstract class Car {
     }
 
     private void checkFields(CarBuilder builder) {
-        if (builder.getLicensePlate() == null || builder.getLicensePlate().length() != 7) {
+        String licensePlate = builder.getLicensePlate();
+        
+        if (licensePlate == null || !isValidLicensePlate(licensePlate)) {
             throw new IllegalArgumentException("license plate is not set or invalid");
         }
         if (builder.getVendor() == null) {
@@ -56,6 +61,10 @@ public abstract class Car {
         if (builder.getValue() <= 0) {
             throw new IllegalArgumentException("value is not set or invalid");
         }
+    }
+
+    private boolean isValidLicensePlate(String licensePlate) {
+        return licensePlate.matches(ResourceManager.INSTANCE.getConfigProperty(ConfigConstants.REGEX_LICENSE_PLATE));
     }
 
     public String getLicensePlate() {

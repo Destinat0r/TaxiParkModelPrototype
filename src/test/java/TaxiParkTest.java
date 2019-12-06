@@ -7,6 +7,7 @@ import static com.companic.model.entity.PassengerCarBuilder.passengerCar;
 import static com.companic.model.entity.TruckBuilder.truck;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class TaxiParkTest {
 
@@ -69,12 +70,12 @@ public class TaxiParkTest {
     }
 
     @Test public void sortByFuelConsumptionAscTest() {
-        assertArrayEquals(new Car[] { car5, car3, car1, car2, car4, truck3, truck2, truck1, truck4, truck5 },
+        assertArrayEquals("wrong order\\amount of cars", new Car[] { car5, car3, car1, car2, car4, truck3, truck2, truck1, truck4, truck5 },
                 taxiPark.sortByFuelConsumptionAsc().toArray());
     }
 
     @Test public void calculateTotalValueTest() {
-        assertEquals(193_700, taxiPark.calculateTotalValue());
+        assertEquals("wrong calculation",193_700, taxiPark.calculateTotalValue());
     }
 
     @Test public void findCarsWithinGivenMaxSpeedRangeTest() {
@@ -85,5 +86,9 @@ public class TaxiParkTest {
     @Test(expected = IllegalArgumentException.class)
     public void  shouldThrow_IllegalArgumentException_when_Invalid_Args_for_MaxSpeedRange_method() {
         taxiPark.findCarsWithinGivenMaxSpeedRange(200, 100);
+    }
+
+    @Test public void shouldReturn_SingleCar_FromSpeedRange_If_It_Is_TheOnlyOne() {
+        assertEquals("should be the only car",1, taxiPark.findCarsWithinGivenMaxSpeedRange(290, 320).size());
     }
 }
