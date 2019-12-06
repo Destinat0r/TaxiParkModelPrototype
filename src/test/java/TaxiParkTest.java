@@ -74,8 +74,18 @@ public class TaxiParkTest {
                 taxiPark.sortByFuelConsumptionAsc().toArray());
     }
 
+    @Test public void shouldReturnEmptyList_OnEmptyPark_for_sortByFuelConsumption() {
+        assertArrayEquals("should return empty list", new Car[]{},
+                new TaxiPark().sortByFuelConsumptionAsc().toArray());
+    }
+
     @Test public void calculateTotalValueTest() {
         assertEquals("wrong calculation",193_700, taxiPark.calculateTotalValue());
+    }
+
+    @Test public void shouldReturn_Zero_on_Empty_Park_for_calculateTotalValue() {
+        assertEquals("should return empty list", 0,
+                new TaxiPark().calculateTotalValue());
     }
 
     @Test public void findCarsWithinGivenMaxSpeedRangeTest() {
