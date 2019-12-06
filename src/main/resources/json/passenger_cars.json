@@ -1,0 +1,122 @@
+[
+  {
+    "body": "HATCHBACK",
+    "passengersAmount": 4,
+    "licensePlate": "12GH1G5",
+    "vendor": "Toyota",
+    "model": "Auris",
+    "year": 2008,
+    "color": "GREEN",
+    "maxSpeed": 250,
+    "fuelConsumption": 4,
+    "value": 2000
+  },
+  {
+    "body": "SEDAN",
+    "passengersAmount": 4,
+    "licensePlate": "G40B0SQ",
+    "vendor": "Mercedes",
+    "model": "E Class",
+    "year": 2003,
+    "color": "GREY",
+    "maxSpeed": 240,
+    "fuelConsumption": 7,
+    "value": 3800
+  },
+  {
+    "body": "HATCHBACK",
+    "passengersAmount": 4,
+    "licensePlate": "7FOIJ4M",
+    "vendor": "Honda",
+    "model": "Fit",
+    "year": 2004,
+    "color": "YELLOW",
+    "maxSpeed": 200,
+    "fuelConsumption": 3,
+    "value": 4000
+  },
+  {
+    "body": "SEDAN",
+    "passengersAmount": 4,
+    "licensePlate": "J45V9MM",
+    "vendor": "Subaru",
+    "model": "Impreza",
+    "year": 2005,
+    "color": "GREEN",
+    "maxSpeed": 190,
+    "fuelConsumption": 9,
+    "value": 3000
+  },
+  {
+    "body": "MINI_VAN",
+    "passengersAmount": 4,
+    "licensePlate": "8N23KD0",
+    "vendor": "Nissan",
+    "model": "Lafesta",
+    "year": 2008,
+    "color": "GREEN",
+    "maxSpeed": 300,
+    "fuelConsumption": 2,
+    "value": 5500
+  },
+  {
+    "body": "MINI_VAN",
+    "passengersAmount": 4,
+    "licensePlate": "3FJNSV9",
+    "vendor": "Suzuki",
+    "model": "Splash",
+    "year": 2010,
+    "color": "GREEN",
+    "maxSpeed": 300,
+    "fuelConsumption": 2,
+    "value": 5500
+  },
+  {
+    "body": "WAGON",
+    "passengersAmount": 4,
+    "licensePlate": "8GML1F4",
+    "vendor": "CHEVROLET",
+    "model": "MW WAGON",
+    "year": 2009,
+    "color": "GREEN",
+    "maxSpeed": 220,
+    "fuelConsumption": 2,
+    "value": 5500
+  },
+  {
+    "body": "COUPE",
+    "passengersAmount": 4,
+    "licensePlate": "KN39FH3",
+    "vendor": "Mazda",
+    "model": "RX8",
+    "year": 2006,
+    "color": "RED",
+    "maxSpeed": 270,
+    "fuelConsumption": 8,
+    "value": 7500
+  },
+  {
+    "body": "COUPE",
+    "passengersAmount": 4,
+    "licensePlate": "9GHEVD0",
+    "vendor": "BMW",
+    "model": "6 SERIES",
+    "year": 2014,
+    "color": "ORANGE",
+    "maxSpeed": 350,
+    "fuelConsumption": 10,
+    "value": 30500
+  },
+  {
+    "body": "HATCHBACK",
+    "passengersAmount": 4,
+    "licensePlate": "23RFS1X",
+    "vendor": "Mitsubishi",
+    "model": "Colt Plus",
+    "year": 2006,
+    "color": "VIOLET",
+    "maxSpeed": 265,
+    "fuelConsumption": 6,
+    "value": 1900
+  }
+]
