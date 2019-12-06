@@ -2,7 +2,7 @@ package com.companic.utils;
 
 public interface LocaleConstants {
     String WELCOME = "welcome";
-    String VIEW_ALL = "view_all";
+    String SHOW_ALL_CARS = "view_all";
     String DIVIDER = "divider";
     String LINE_DIVIDER_SYMBOL = "line_divider_symbol";
     String KEY_VALUE_DIVIDER = "key_value_divider";
