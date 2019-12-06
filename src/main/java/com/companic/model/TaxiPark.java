@@ -30,6 +30,9 @@ public class TaxiPark {
     }
 
     public List<Car> findCarsWithinGivenMaxSpeedRange(int min, int max) {
+        if (min >= max) {
+            throw new IllegalArgumentException("min is bigger or equal to max");
+        }
         List<Car> foundCars = new ArrayList<>();
         for (Car car : cars) {
             if (car.getMaxSpeed() >= min && car.getMaxSpeed() <= max) {
