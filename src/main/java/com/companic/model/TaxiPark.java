@@ -13,7 +13,7 @@ public class TaxiPark {
     }
 
     public TaxiPark(Car[] ...cars) {
-        if (cars == null) {
+        if (cars == null) { //
             throw new IllegalArgumentException("cars in null");
         }
         this.cars = new ArrayList<>();
@@ -33,7 +33,7 @@ public class TaxiPark {
 
     public List<Car> sortByFuelConsumptionAsc() {
         List<Car> sorted = new ArrayList<>(cars);
-        Collections.sort(sorted, Comparator.comparingInt(Car::getFuelConsumption));
+        Collections.sort(sorted, Comparator.comparingInt(Car::getFuelConsumption)); //could be list
         return sorted;
     }
 

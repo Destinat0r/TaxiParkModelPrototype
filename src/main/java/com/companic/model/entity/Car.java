@@ -35,11 +35,11 @@ public abstract class Car {
         this.value = builder.getValue();
     }
 
-    private void checkFields(CarBuilder builder) {
+    private void checkFields(CarBuilder builder) {//option
         String licensePlate = builder.getLicensePlate();
         
         if (licensePlate == null || !isValidLicensePlate(licensePlate)) {
-            throw new IllegalArgumentException("license plate is not set or invalid");
+            throw new IllegalArgumentException("license plate is not set or invalid"); //uncaught ex
         }
         if (builder.getVendor() == null) {
             throw new IllegalArgumentException("vendor is not set");

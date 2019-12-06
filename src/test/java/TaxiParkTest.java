@@ -26,9 +26,10 @@ public class TaxiParkTest {
     private static Truck truck5;
 
     @BeforeClass public static void init() {
+        //use json
         car1 = passengerCar().withVendor("Toyota").withModel("Auris").withYear(2008).withBody(Body.HATCHBACK)
                        .withColor(Color.GREEN).withMaxSpeed(250).withFuelConsumption(4).withPassengersAmount(4)
-                       .withValue(2000).withLicense("12GH1G5").build();
+                       .withValue(2000).withLicense("12GH1G5").build(); //names
 
         car2 = passengerCar().withVendor("Mercedes").withModel("E Class").withYear(2003).withBody(Body.SEDAN)
                        .withColor(Color.GREY).withMaxSpeed(240).withLicense("12GH1G5").withFuelConsumption(7)
