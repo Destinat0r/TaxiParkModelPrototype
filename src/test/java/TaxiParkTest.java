@@ -1,14 +1,7 @@
 import com.companic.model.TaxiPark;
-import com.companic.model.entity.Car;
-import com.companic.model.entity.Color;
-import com.companic.model.entity.Body;
-import com.companic.model.entity.PassengerCar;
-import com.companic.model.entity.Duty;
-import com.companic.model.entity.Truck;
+import com.companic.model.entity.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import java.util.List;
 
 import static com.companic.model.entity.PassengerCarBuilder.passengerCar;
 import static com.companic.model.entity.TruckBuilder.truck;
