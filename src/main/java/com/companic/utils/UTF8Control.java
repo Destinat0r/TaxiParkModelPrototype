@@ -12,14 +12,14 @@ import java.util.ResourceBundle.Control;
 
 public class UTF8Control extends Control {
     public ResourceBundle newBundle
-            (String baseName, Locale locale, String format, ClassLoader classLoader, boolean reload)
+            (String baseName, Locale locale, String format, ClassLoader classLoader, boolean isReload)
             throws IllegalAccessException, InstantiationException, IOException
     {
         String bundleName = toBundleName(baseName, locale);
         String resourceName = toResourceName(bundleName, "properties");
         ResourceBundle bundle = null;
         InputStream stream = null;
-        if (reload) {
+        if (isReload) {
             URL url = classLoader.getResource(resourceName);
             if (url != null) {
                 URLConnection connection = url.openConnection();
