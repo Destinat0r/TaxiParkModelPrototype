@@ -14,7 +14,7 @@ import java.io.Reader;
 public class JsonLoader {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
-    public static void loadToJson(Object[] objects, String filePath) {
+    public static void writeToJson(Object[] objects, String filePath) {
         try (FileWriter writer = new FileWriter(filePath)) {
             GSON.toJson(objects, writer);
         } catch (IOException e) {
@@ -22,7 +22,7 @@ public class JsonLoader {
         }
     }
 
-    public static <T> T[] loadFromJson(String filePath, Class<T[]> clazz) {
+    public static <T> T[] readFromJson(String filePath, Class<T[]> clazz) {
         T[] objects = null;
         try (Reader reader = new FileReader(filePath)) {
             objects = GSON.fromJson(reader, clazz);
