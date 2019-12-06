@@ -30,14 +30,14 @@ public class JsonArrayLoader {
     /**
      * Read objects from Json to array
      * @param filePath
-     * @param clazz class of object to read. Has to be in form YourObject[].class
+     * @param clazz class of object to read. Has to be in form YourClass[].class
      * @return array of objects of pointed type
      */
     public static <T> T[] readFromJson(String filePath, Class<T[]> clazz) {
         T[] objects = null;
         try (Reader reader = new FileReader(filePath)) {
             objects = GSON.fromJson(reader, clazz);
-        } catch(Exception e) {
+        } catch(IOException e) {
             e.printStackTrace();
         }
         return objects;
