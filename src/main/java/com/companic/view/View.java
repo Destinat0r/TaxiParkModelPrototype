@@ -50,7 +50,6 @@ public class View {
 
     public void printWelcome() {
         print(getFromResources(LocaleConstants.WELCOME));
-        print("\n");
     }
 
     public void printSortedByFuelConsumptionAsc(List<Car> cars) {
