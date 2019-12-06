@@ -54,6 +54,7 @@ public class View {
 
     public void printSortedByFuelConsumptionAsc(List<Car> cars) {
         print(getFromResources(LocaleConstants.SORT_BY_FUEL_CONSUMPTION_ASC));
+        print("");
         printCars(cars);
     }
 
