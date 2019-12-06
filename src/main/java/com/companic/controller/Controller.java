@@ -20,7 +20,7 @@ public class Controller {
     }
 
     public void run() {
-        resourceManager.setLocale(new Locale(resourceManager.getParameter(ConfigConstants.LOCALE_CURRENT)));
+        resourceManager.setLocale(new Locale(resourceManager.getConfigProperty(ConfigConstants.LOCALE_CURRENT)));
 
         Truck[] trucks = CarsInitializer.initTrucksFromJsonFile();
         PassengerCar[] cars = CarsInitializer.initPassengerCarsFromJsonFile();

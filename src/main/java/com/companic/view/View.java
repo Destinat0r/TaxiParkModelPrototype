@@ -18,7 +18,7 @@ public class View {
 
     public void printInitialProgramInfo(List<Car> cars) {
         printWelcome();
-        print(resourceManager.getString(LocaleConstants.VIEW_ALL));
+        print(resourceManager.getLocaleProperty(LocaleConstants.VIEW_ALL));
         printCars(cars);
     }
 
@@ -31,7 +31,7 @@ public class View {
     }
 
     private void printLineDivider() {
-        String lineDividerSymbol = resourceManager.getString(LocaleConstants.LINE_DIVIDER_SYMBOL);
+        String lineDividerSymbol = resourceManager.getLocaleProperty(LocaleConstants.LINE_DIVIDER_SYMBOL);
         for (int i = 0; i++ < 300;) {
             System.out.print(lineDividerSymbol);
         }
@@ -140,6 +140,6 @@ public class View {
     }
 
     private String getFromResources(String prop) {
-        return resourceManager.getString(prop);
+        return resourceManager.getLocaleProperty(prop);
     }
 }

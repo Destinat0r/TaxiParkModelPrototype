@@ -19,11 +19,11 @@ public enum ResourceManager {
         localeBundle = ResourceBundle.getBundle(localeResourceName, locale, new UTF8Control());
     }
 
-    public String getString(String key) {
+    public String getLocaleProperty(String key) {
         return localeBundle.getString(key);
     }
 
-    public String getParameter(String param) {
+    public String getConfigProperty(String param) {
         return configBundle.getString(param);
     }
 }
