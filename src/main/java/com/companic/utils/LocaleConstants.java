@@ -4,6 +4,7 @@ public interface LocaleConstants {
     String WELCOME = "welcome";
     String VIEW_ALL = "view_all";
     String DIVIDER = "divider";
+    String LINE_DIVIDER = "line_divider";
     String KEY_VALUE_DIVIDER = "key_value_divider";
     String LEFT_BORDER = "left_border";
     String RIGHT_BORDER = "right_border";
