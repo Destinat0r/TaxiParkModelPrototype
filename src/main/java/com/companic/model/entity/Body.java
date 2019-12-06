@@ -1,6 +1,6 @@
-package com.companic.model;
+package com.companic.model.entity;
 
-public enum Type {
+public enum Body {
     SEDAN,
     HATCHBACK,
     COUPE,

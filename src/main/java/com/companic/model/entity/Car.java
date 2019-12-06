@@ -1,29 +1,32 @@
 package com.companic.model.entity;
 
-import com.companic.model.CarBuilder;
-import com.companic.model.Color;
-import com.companic.model.Type;
-
 import java.time.Year;
+import java.util.Objects;
 
-public class Car {
+/**
+ * Represents blueprint of generic car.
+ * Uses <b>Builder</b> design pattern in constructor.
+ */
+public abstract class Car {
 
-    private long id;
+
+    private String licensePlate;
     private String vendor;
     private String model;
-    private Type type;
     private int year;
     private Color color;
     private int maxSpeed;
+    /**
+     * Fuel consumption in liters per 100 km
+     */
     private int fuelConsumption;
     private int value;
 
     public Car(CarBuilder builder) {
-
-        allFieldsSetCheck(builder);
+        checkFields(builder);
+        this.licensePlate = builder.getLicensePlate();
         this.vendor = builder.getVendor();
         this.model = builder.getModel();
-        this.type = builder.getType();
         this.year = builder.getYear();
         this.color = builder.getColor();
         this.maxSpeed = builder.getMaxSpeed();
@@ -31,15 +34,15 @@ public class Car {
         this.value = builder.getValue();
     }
 
-    private void allFieldsSetCheck(CarBuilder builder) {
+    private void checkFields(CarBuilder builder) {
+        if (builder.getLicensePlate() == null || builder.getLicensePlate().length() != 7) {
+            throw new IllegalArgumentException("license plate is not set or invalid");
+        }
         if (builder.getVendor() == null) {
             throw new IllegalArgumentException("vendor is not set");
         }
         if (builder.getModel() == null) {
             throw new IllegalArgumentException("model is not set");
-        }
-        if (builder.getType() == null) {
-            throw new IllegalArgumentException("type is not set");
         }
         if (builder.getYear() <= 1970 || builder.getYear() > Year.now().getValue()) {
             throw new IllegalArgumentException("year is not set or invalid");
@@ -55,12 +58,12 @@ public class Car {
         }
     }
 
-    public long getId() {
-        return id;
+    public String getLicensePlate() {
+        return licensePlate;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setLicensePlate(String licensePlate) {
+        this.licensePlate = licensePlate;
     }
 
     public String getVendor() {
@@ -77,14 +80,6 @@ public class Car {
 
     public void setModel(String model) {
         this.model = model;
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public void setType(Type type) {
-        this.type = type;
     }
 
     public int getYear() {
@@ -127,9 +122,19 @@ public class Car {
         this.value = value;
     }
 
-    @Override public String toString() {
-        return "Car{" + "id=" + id + ", vendor='" + vendor + '\'' + ", model='" + model + '\'' + ", type=" + type
-                       + ", year=" + year + ", color=" + color + ", maxSpeed=" + maxSpeed + ", fuelConsumption="
-                       + fuelConsumption + ", value=" + value + '}';
+    @Override public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Car car = (Car) o;
+        return year == car.year && maxSpeed == car.maxSpeed && fuelConsumption == car.fuelConsumption
+                       && value == car.value && Objects.equals(licensePlate, car.licensePlate) && Objects.equals(vendor,
+                car.vendor) && Objects.equals(model, car.model) && color == car.color;
+    }
+
+    @Override public int hashCode() {
+
+        return Objects.hash(licensePlate, vendor, model, year, color, maxSpeed, fuelConsumption, value);
     }
 }

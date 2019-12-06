@@ -1,4 +1,4 @@
-package com.companic.util;
+package com.companic.utils;
 
 import java.io.IOException;
 import java.io.InputStream;

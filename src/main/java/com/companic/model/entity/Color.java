@@ -1,4 +1,4 @@
-package com.companic.model;
+package com.companic.model.entity;
 
 public enum Color {
     WHITE,
@@ -8,5 +8,6 @@ public enum Color {
     YELLOW,
     ORANGE,
     VIOLET,
-    GREY
+    GREY,
+    BLACK
 }
