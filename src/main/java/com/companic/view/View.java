@@ -18,7 +18,9 @@ public class View {
 
     public void printInitialProgramInfo(List<Car> cars) {
         printWelcome();
+        print("");
         print(resourceManager.getLocaleProperty(LocaleConstants.VIEW_ALL));
+        print("");
         printCars(cars);
     }
 
