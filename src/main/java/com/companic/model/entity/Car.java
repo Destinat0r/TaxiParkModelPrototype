@@ -3,7 +3,12 @@ package com.companic.model.entity;
 import java.time.Year;
 import java.util.Objects;
 
+/**
+ * Represents blueprint of generic car.
+ * Uses <b>Builder</b> design pattern in constructor.
+ */
 public abstract class Car {
+
 
     private String licensePlate;
     private String vendor;
@@ -11,6 +16,9 @@ public abstract class Car {
     private int year;
     private Color color;
     private int maxSpeed;
+    /**
+     * Fuel consumption in liters per 100 km
+     */
     private int fuelConsumption;
     private int value;
 
