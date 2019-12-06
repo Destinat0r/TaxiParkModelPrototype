@@ -88,4 +88,9 @@ public class TaxiParkTest {
         assertArrayEquals(new Car[] { car2, car3, car4, truck1, truck3 },
                 taxiPark.findCarsWithinGivenMaxSpeedRange(150, 245).toArray());
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void  shouldThrow_IllegalArgumentException_when_Invalid_Args_for_MaxSpeedRange_method() {
+        taxiPark.findCarsWithinGivenMaxSpeedRange(200, 100);
+    }
 }
