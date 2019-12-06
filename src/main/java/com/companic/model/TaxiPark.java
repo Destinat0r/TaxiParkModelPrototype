@@ -8,8 +8,15 @@ public class TaxiPark {
 
     private List<Car> cars;
 
+    public TaxiPark() {
+        this.cars = new ArrayList<>();
+    }
+
     public TaxiPark(Car[] ...cars) {
-        this.cars = new ArrayList<Car>();
+        if (cars == null) {
+            throw new IllegalArgumentException("cars in null");
+        }
+        this.cars = new ArrayList<>();
         for (Car[] carArray : cars) {
             this.cars.addAll(Arrays.asList(carArray));
         }
