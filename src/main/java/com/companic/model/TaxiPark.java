@@ -5,6 +5,7 @@ import com.companic.model.entity.Car;
 import java.util.*;
 
 public class TaxiPark {
+
     private List<Car> cars;
 
     public TaxiPark(Car[] ...cars) {

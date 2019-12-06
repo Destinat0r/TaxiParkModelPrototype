@@ -11,8 +11,6 @@ import java.util.Objects;
  * Uses <b>Builder</b> design pattern in constructor.
  */
 public abstract class Car {
-
-
     private String licensePlate;
     private String vendor;
     private String model;
@@ -143,7 +141,6 @@ public abstract class Car {
     }
 
     @Override public int hashCode() {
-
         return Objects.hash(licensePlate, vendor, model, year, color, maxSpeed, fuelConsumption, value);
     }
 }

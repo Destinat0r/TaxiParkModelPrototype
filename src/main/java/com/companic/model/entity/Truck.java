@@ -3,6 +3,7 @@ package com.companic.model.entity;
 import java.util.Objects;
 
 public class Truck extends Car {
+
     private Duty duty;
     private int payload;
 
@@ -50,7 +51,6 @@ public class Truck extends Car {
     }
 
     @Override public int hashCode() {
-
         return Objects.hash(super.hashCode(), duty, payload);
     }
 

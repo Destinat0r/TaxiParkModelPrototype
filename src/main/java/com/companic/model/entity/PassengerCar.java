@@ -51,7 +51,6 @@ public class PassengerCar extends Car {
     }
 
     @Override public int hashCode() {
-
         return Objects.hash(super.hashCode(), body, passengersAmount);
     }
 }

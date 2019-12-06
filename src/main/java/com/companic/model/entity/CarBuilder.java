@@ -1,6 +1,7 @@
 package com.companic.model.entity;
 
 public abstract class CarBuilder<B extends CarBuilder> {
+
     private String licensePlate;
     private String vendor;
     private String model;

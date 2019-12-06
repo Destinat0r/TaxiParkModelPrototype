@@ -35,5 +35,4 @@ public class Controller {
 
         view.printCarsWithinSpeedRange(130, 260, taxiPark.findCarsWithinGivenMaxSpeedRange(130, 260));
     }
-
 }
