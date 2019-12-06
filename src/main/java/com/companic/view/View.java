@@ -16,7 +16,7 @@ public class View {
         this.resourceManager = ResourceManager.INSTANCE;
     }
 
-    public void printWelcomeAndAllCars(List<Car> cars) {
+    public void printInitialProgramInfo(List<Car> cars) {
         printWelcome();
         print(resourceManager.getString(LocaleConstants.VIEW_ALL));
         printCars(cars);
