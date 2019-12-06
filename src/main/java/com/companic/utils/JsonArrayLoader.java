@@ -11,7 +11,7 @@ import java.io.Reader;
 /**
  * Reads and writes array of objects from/to <b>JSON</b>
  */
-public class JsonLoader {
+public class JsonArrayLoader {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     /**
