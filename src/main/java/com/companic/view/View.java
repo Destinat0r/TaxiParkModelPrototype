@@ -16,9 +16,10 @@ public class View {
         this.resourceManager = ResourceManager.INSTANCE;
     }
 
-    public void printAllCars(List<Car> cars) {
+    public void printCars(List<Car> cars) {
         for (Car car : cars) {
             printCar(car);
+            print("");
         }
     }
 
@@ -33,17 +34,18 @@ public class View {
 
     public void printWelcome() {
         print(getFromResources(LocaleConstants.WELCOME));
+        print("\n");
     }
 
     public void printSortedByFuelConsumptionAsc(List<Car> cars) {
         print(getFromResources(LocaleConstants.SORT_BY_FUEL_CONSUMPTION_ASC));
-        printAllCars(cars);
+        printCars(cars);
     }
 
     public void printCarsWithinSpeedRange(int min, int max, List<Car> cars) {
         String message = getFromResources(LocaleConstants.WITHIN_MAX_SPEED_RANGE);
         System.out.printf(message, min, max);
-        printAllCars(cars);
+        printCars(cars);
     }
 
     public void printCar(Car car) {
