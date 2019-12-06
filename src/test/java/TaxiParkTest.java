@@ -1,4 +1,4 @@
-import com.companic.model.entity.*;
+import com.companic.model.TaxiPark;
 import com.companic.model.entity.Car;
 import com.companic.model.entity.Color;
 import com.companic.model.entity.Body;
@@ -17,7 +17,6 @@ import static org.junit.Assert.assertEquals;
 
 public class TaxiParkTest {
 
-    private static List<Car> cars;
     private static TaxiPark taxiPark;
 
     private static PassengerCar car1;
@@ -26,11 +25,11 @@ public class TaxiParkTest {
     private static PassengerCar car4;
     private static PassengerCar car5;
 
-    private static Truck car6;
-    private static Truck car7;
-    private static Truck car8;
-    private static Truck car9;
-    private static Truck car10;
+    private static Truck truck1;
+    private static Truck truck2;
+    private static Truck truck3;
+    private static Truck truck4;
+    private static Truck truck5;
 
     @BeforeClass public static void init() {
         car1 = passengerCar().withVendor("Toyota").withModel("Auris").withYear(2008).withBody(Body.HATCHBACK)
@@ -53,29 +52,40 @@ public class TaxiParkTest {
                        .withColor(Color.GREEN).withMaxSpeed(300).withFuelConsumption(2).withPassengersAmount(4)
                        .withLicense("12GH1G5").withValue(5500).build();
 
-        car6 = truck().withVendor("Nissan").withModel("Lafesta").withYear(2008).withDuty(Duty.LIGHT).withPayload(2000)
-                       .withColor(Color.GREEN).withMaxSpeed(150).withFuelConsumption(10).withValue(7500)
-                       .withLicense("12GH1G5").build();
+        truck1 = truck().withVendor("International").withLicense("4RSL95H").withModel("CV515: 115\" BBC").withYear(2018)
+                         .withDuty(Duty.MEDIUM).withPayload(10000).withColor(Color.RED).withMaxSpeed(180)
+                         .withFuelConsumption(20).withValue(100500).build();
 
-        car7 = truck().withVendor("Nissan").withModel("Lafesta").withYear(2008).withDuty(Duty.MEDIUM).withPayload(5000)
-                       .withLicense("12GH1G5").withColor(Color.BLUE).withMaxSpeed(140).withFuelConsumption(15)
-                       .withValue(17500).build();
-        ;
+        truck2 = truck().withVendor("HINO").withLicense("8F483NA").withModel("NH: 155\" Cabover").withYear(2007)
+                         .withDuty(Duty.MEDIUM).withPayload(10000).withColor(Color.GREY).withMaxSpeed(140)
+                         .withFuelConsumption(17).withValue(34500).build();
 
-        taxiPark = new TaxiPark(car1, car2, car3, car4, car5, car6, car7);
+        truck3 = truck().withVendor("Ford").withLicense("JF71NH5").withModel("F150").withYear(1977).withDuty(Duty.LIGHT)
+                         .withPayload(2000).withColor(Color.BLUE).withMaxSpeed(160).withFuelConsumption(11)
+                         .withValue(5700).build();
+
+        truck4 = truck().withVendor("Freightliner").withLicense("8GH5N12").withModel("BUSINESS CLASS M2 106")
+                         .withYear(2007).withDuty(Duty.HEAVY).withPayload(20000).withColor(Color.WHITE)
+                         .withMaxSpeed(130).withFuelConsumption(25).withValue(15700).build();
+
+        truck5 = truck().withVendor("Kenworth").withLicense("93N12L9").withModel("K100").withYear(1984)
+                         .withDuty(Duty.HEAVY).withPayload(25000).withColor(Color.BLACK).withMaxSpeed(120)
+                         .withFuelConsumption(30).withValue(19000).build();
+
+        taxiPark = new TaxiPark(new Car[] { car1, car2, car3, car4, car5, truck1, truck2, truck3, truck4, truck5 });
     }
 
     @Test public void sortByFuelConsumptionAscTest() {
-        assertArrayEquals(new Car[] { car5, car3, car1, car2, car4, car6, car7 },
+        assertArrayEquals(new Car[] { car5, car3, car1, car2, car4, truck3, truck2, truck1, truck4, truck5 },
                 taxiPark.sortByFuelConsumptionAsc().toArray());
     }
 
     @Test public void calculateTotalValueTest() {
-        assertEquals(43_300, taxiPark.calculateTotalValue());
+        assertEquals(193_700, taxiPark.calculateTotalValue());
     }
 
     @Test public void findCarsWithinGivenMaxSpeedRangeTest() {
-        assertArrayEquals(new Car[] { car2, car3, car4 },
-                taxiPark.findCarsWithinGivenMaxSpeedRange(180, 245).toArray());
+        assertArrayEquals(new Car[] { car2, car3, car4, truck1, truck3 },
+                taxiPark.findCarsWithinGivenMaxSpeedRange(150, 245).toArray());
     }
 }
