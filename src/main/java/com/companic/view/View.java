@@ -27,10 +27,10 @@ public class View {
             printCar(car);
             print("");
         }
-        printDivider();
+        printLineDivider();
     }
 
-    private void printDivider() {
+    private void printLineDivider() {
         String lineDivider = resourceManager.getString(LocaleConstants.LINE_DIVIDER);
         for (int i = 0; i++ < 300;) {
             System.out.print(lineDivider);
@@ -41,7 +41,7 @@ public class View {
     public void printTotalValue(int value) {
         print(getFromResources(LocaleConstants.TOTAL_VALUE));
         print("" + value);
-        printDivider();
+        printLineDivider();
     }
 
     public void print(String string) {
