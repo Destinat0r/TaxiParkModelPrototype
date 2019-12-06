@@ -70,12 +70,12 @@ public class TaxiParkTest {
     }
 
     @Test public void sortByFuelConsumptionAscTest() {
-        assertArrayEquals(new Car[] { car5, car3, car1, car2, car4, truck3, truck2, truck1, truck4, truck5 },
+        assertArrayEquals("wrong order\\amount of cars", new Car[] { car5, car3, car1, car2, car4, truck3, truck2, truck1, truck4, truck5 },
                 taxiPark.sortByFuelConsumptionAsc().toArray());
     }
 
     @Test public void calculateTotalValueTest() {
-        assertEquals(193_700, taxiPark.calculateTotalValue());
+        assertEquals("wrong calculation",193_700, taxiPark.calculateTotalValue());
     }
 
     @Test public void findCarsWithinGivenMaxSpeedRangeTest() {
@@ -89,6 +89,6 @@ public class TaxiParkTest {
     }
 
     @Test public void shouldReturn_SingleCar_FromSpeedRange_If_It_Is_TheOnlyOne() {
-        assertEquals(1, taxiPark.findCarsWithinGivenMaxSpeedRange(290, 320).size());
+        assertEquals("should be the only car",1, taxiPark.findCarsWithinGivenMaxSpeedRange(290, 320).size());
     }
 }
