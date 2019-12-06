@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.Reader;
 
 /**
- * Reads/writes array of objects from/to <b>JSON</b>
+ * Reads/writes array of objects from/to <b>JSON</b> file
  */
 public class JsonArrayLoader {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
