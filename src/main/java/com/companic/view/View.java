@@ -16,16 +16,30 @@ public class View {
         this.resourceManager = ResourceManager.INSTANCE;
     }
 
+    public void printWelcomeAndAllCars(List<Car> cars) {
+        printWelcome();
+        print(resourceManager.getString(LocaleConstants.VIEW_ALL));
+        printCars(cars);
+    }
+
     public void printCars(List<Car> cars) {
         for (Car car : cars) {
             printCar(car);
             print("");
         }
+        printDivider();
+    }
+
+    private void printDivider() {
+        print("======================================================================================================="
+                      + "============================================================================================="
+                      + "============================================================\n");
     }
 
     public void printTotalValue(int value) {
         print(getFromResources(LocaleConstants.TOTAL_VALUE));
         print("" + value);
+        printDivider();
     }
 
     public void print(String string) {
