@@ -14,9 +14,6 @@ public class TaxiPark {
     }
 
     public TaxiPark(Car[] ...cars) {
-        if (cars == null) { //
-            throw new IllegalArgumentException("cars in null");
-        }
         this.cars = new ArrayList<>();
         for (Car[] carArray : cars) {
             this.cars.addAll(Arrays.asList(carArray));
