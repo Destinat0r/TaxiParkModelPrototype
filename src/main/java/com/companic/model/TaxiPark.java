@@ -3,6 +3,7 @@ package com.companic.model;
 import com.companic.model.entity.Car;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class TaxiPark {
 
@@ -38,16 +39,9 @@ public class TaxiPark {
     }
 
     public List<Car> findCarsWithinGivenMaxSpeedRange(int min, int max) {
-        if (min >= max) {
-            throw new IllegalArgumentException("min is bigger or equal to max");
-        }
-        List<Car> foundCars = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.getMaxSpeed() >= min && car.getMaxSpeed() <= max) {
-                foundCars.add(car);
-            }
-        }
-        return foundCars;
+        return cars.stream()
+                       .filter(x -> x.getMaxSpeed() >= min && x.getMaxSpeed() <= max)
+                       .collect(Collectors.toList());
     }
 
     public List<Car> getCars() {
