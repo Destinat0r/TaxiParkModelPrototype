@@ -21,12 +21,7 @@ public class TaxiPark {
     }
 
     public int calculateTotalValue() {
-        int totalValue = 0;
-
-        for (Car car : cars) {
-            totalValue += car.getValue();
-        }
-        return totalValue;
+        return cars.stream().mapToInt(car -> car.getValue()).sum();
     }
 
     public List<Car> sortByFuelConsumptionAsc() {
