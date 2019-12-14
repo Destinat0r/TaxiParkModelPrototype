@@ -10,7 +10,7 @@ import java.util.Objects;
  * Represents blueprint of generic car.
  * Uses <b>Builder</b> design pattern in constructor.
  */
-public abstract class Car {
+public abstract class Vehicle {
     private String licensePlate;
     private String vendor;
     private String model;
@@ -23,7 +23,7 @@ public abstract class Car {
     private int fuelConsumption;
     private int value;
 
-    public Car(CarBuilder builder) {
+    public Vehicle(CarBuilder builder) {
         checkFields(builder);
         this.licensePlate = builder.getLicensePlate();
         this.vendor = builder.getVendor();
@@ -134,10 +134,10 @@ public abstract class Car {
             return true;
         if (o == null || getClass() != o.getClass())
             return false;
-        Car car = (Car) o;
-        return year == car.year && maxSpeed == car.maxSpeed && fuelConsumption == car.fuelConsumption
-                       && value == car.value && Objects.equals(licensePlate, car.licensePlate) && Objects.equals(vendor,
-                car.vendor) && Objects.equals(model, car.model) && color == car.color;
+        Vehicle vehicle = (Vehicle) o;
+        return year == vehicle.year && maxSpeed == vehicle.maxSpeed && fuelConsumption == vehicle.fuelConsumption
+                       && value == vehicle.value && Objects.equals(licensePlate, vehicle.licensePlate) && Objects.equals(vendor,
+                vehicle.vendor) && Objects.equals(model, vehicle.model) && color == vehicle.color;
     }
 
     @Override public int hashCode() {

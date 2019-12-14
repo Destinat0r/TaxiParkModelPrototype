@@ -1,7 +1,7 @@
 package com.companic.view;
 
-import com.companic.model.entity.Car;
-import com.companic.model.entity.PassengerCar;
+import com.companic.model.entity.PassengerVehicle;
+import com.companic.model.entity.Vehicle;
 import com.companic.model.entity.Truck;
 import com.companic.utils.LocaleConstants;
 import com.companic.utils.ResourceManager;
@@ -16,17 +16,17 @@ public class View {
         this.resourceManager = ResourceManager.INSTANCE;
     }
 
-    public void printInitialProgramInfo(List<Car> cars) {
+    public void printInitialProgramInfo(List<Vehicle> vehicles) {
         printWelcome();
         print("");
         print(resourceManager.getLocaleProperty(LocaleConstants.SHOW_ALL_CARS));
         print("");
-        printCars(cars);
+        printCars(vehicles);
     }
 
-    public void printCars(List<Car> cars) {
-        for (Car car : cars) {
-            printCar(car);
+    public void printCars(List<Vehicle> vehicles) {
+        for (Vehicle vehicle : vehicles) {
+            printCar(vehicle);
             print("");
         }
         printLineDivider();
@@ -54,68 +54,68 @@ public class View {
         print(getFromResources(LocaleConstants.WELCOME));
     }
 
-    public void printSortedByFuelConsumptionAsc(List<Car> cars) {
+    public void printSortedByFuelConsumptionAsc(List<Vehicle> vehicles) {
         print(getFromResources(LocaleConstants.SORT_BY_FUEL_CONSUMPTION_ASC));
         print("");
-        printCars(cars);
+        printCars(vehicles);
     }
 
-    public void printCarsWithinSpeedRange(int min, int max, List<Car> cars) {
+    public void printCarsWithinSpeedRange(int min, int max, List<Vehicle> vehicles) {
         System.out.printf(getFromResources(LocaleConstants.WITHIN_MAX_SPEED_RANGE), min, max);
         print("\n");
-        printCars(cars);
+        printCars(vehicles);
     }
 
-    public void printCar(Car car) {
-        print(generateInfoOutputFor(car));
+    public void printCar(Vehicle vehicle) {
+        print(generateInfoOutputFor(vehicle));
     }
 
-    private String generateInfoOutputFor(Car car) {
+    private String generateInfoOutputFor(Vehicle vehicle) {
         StringBuilder builder = new StringBuilder(200);
 
         String keyValueDivider = getFromResources(LocaleConstants.KEY_VALUE_DIVIDER);
         String divider = getFromResources(LocaleConstants.DIVIDER);
 
-        appendCorrectCarType(car, builder);
+        appendCorrectCarType(vehicle, builder);
 
         builder.append(getFromResources(LocaleConstants.LEFT_BORDER))
                 .append(getFromResources(LocaleConstants.LICENSE_PLATE)).append(keyValueDivider)
-                .append(car.getLicensePlate()).append(divider).append(getFromResources(LocaleConstants.VENDOR))
-                .append(keyValueDivider).append(car.getVendor()).append(divider)
-                .append(getFromResources(LocaleConstants.MODEL)).append(keyValueDivider).append(car.getModel())
+                .append(vehicle.getLicensePlate()).append(divider).append(getFromResources(LocaleConstants.VENDOR))
+                .append(keyValueDivider).append(vehicle.getVendor()).append(divider)
+                .append(getFromResources(LocaleConstants.MODEL)).append(keyValueDivider).append(vehicle.getModel())
                 .append(divider);
 
-        appendSpecificInfo(car, builder);
+        appendSpecificInfo(vehicle, builder);
 
-        builder.append(getFromResources(LocaleConstants.YEAR)).append(keyValueDivider).append(car.getYear())
+        builder.append(getFromResources(LocaleConstants.YEAR)).append(keyValueDivider).append(vehicle.getYear())
                 .append(divider).append(getFromResources(LocaleConstants.COLOR)).append(keyValueDivider)
-                .append(getFromResources(getColorResourceName(car))).append(divider)
-                .append(getFromResources(LocaleConstants.MAX_SPEED)).append(keyValueDivider).append(car.getMaxSpeed())
+                .append(getFromResources(getColorResourceName(vehicle))).append(divider)
+                .append(getFromResources(LocaleConstants.MAX_SPEED)).append(keyValueDivider).append(vehicle.getMaxSpeed())
                 .append(divider).append(getFromResources(LocaleConstants.FUEL)).append(keyValueDivider)
-                .append(car.getFuelConsumption()).append(divider).append(getFromResources(LocaleConstants.VALUE))
-                .append(keyValueDivider).append(car.getValue())
+                .append(vehicle.getFuelConsumption()).append(divider).append(getFromResources(LocaleConstants.VALUE))
+                .append(keyValueDivider).append(vehicle.getValue())
                 .append(getFromResources(LocaleConstants.RIGHT_BORDER));
 
         return builder.toString();
     }
 
-    private String getColorResourceName(Car car) {
+    private String getColorResourceName(Vehicle vehicle) {
         return new StringBuilder(LocaleConstants.COLOR).append(".")
-                       .append(car.getColor().toString().toLowerCase()).toString();
+                       .append(vehicle.getColor().toString().toLowerCase()).toString();
     }
 
-    private void appendSpecificInfo(Car car, StringBuilder builder) {
+    private void appendSpecificInfo(Vehicle vehicle, StringBuilder builder) {
         String keyValueDivider = getFromResources(LocaleConstants.KEY_VALUE_DIVIDER);
         String divider = getFromResources(LocaleConstants.DIVIDER);
 
-        if (car instanceof PassengerCar) {
-            PassengerCar passengerCar = (PassengerCar) car;
+        if (vehicle instanceof PassengerVehicle) {
+            PassengerVehicle passengerCar = (PassengerVehicle) vehicle;
             builder.append(getFromResources(LocaleConstants.BODY)).append(keyValueDivider)
                     .append(getFromResources(getBodyTypeName(passengerCar))).append(divider)
                     .append(getFromResources(LocaleConstants.PASSENGERS_AMOUNT)).append(keyValueDivider)
                     .append(passengerCar.getPassengersAmount()).append(divider);
-        } else if (car instanceof Truck) {
-            Truck truck = (Truck) car;
+        } else if (vehicle instanceof Truck) {
+            Truck truck = (Truck) vehicle;
             builder.append(getFromResources(LocaleConstants.DUTY)).append(keyValueDivider)
                     .append(getFromResources(getDutyTypeName(truck))).append(divider)
                     .append(getFromResources(LocaleConstants.PAYLOAD)).append(keyValueDivider)
@@ -128,15 +128,15 @@ public class View {
                        .append(".").append(truck.getDuty().toString().toLowerCase()).toString();
     }
 
-    private String getBodyTypeName(PassengerCar passengerCar) {
+    private String getBodyTypeName(PassengerVehicle passengerCar) {
         return new StringBuilder(LocaleConstants.BODY).append(".")
                        .append(passengerCar.getBody().toString().toLowerCase()).toString();
     }
 
-    private void appendCorrectCarType(Car car, StringBuilder builder) {
-        if (car instanceof PassengerCar) {
+    private void appendCorrectCarType(Vehicle vehicle, StringBuilder builder) {
+        if (vehicle instanceof PassengerVehicle) {
             builder.append(getFromResources(LocaleConstants.PASSENGER_CAR));
-        } else if (car instanceof Truck){
+        } else if (vehicle instanceof Truck){
             builder.append(getFromResources(LocaleConstants.TRUCK));
         }
     }

@@ -2,12 +2,12 @@ package com.companic.model.entity;
 
 import java.util.Objects;
 
-public class PassengerCar extends Car {
+public class PassengerVehicle extends Vehicle {
 
     private Body body;
     private int passengersAmount;
 
-    public PassengerCar(PassengerCarBuilder builder) {
+    public PassengerVehicle(PassengerCarBuilder builder) {
         super(builder);
         checkFields(builder);
         this.body = builder.getBody();
@@ -46,7 +46,7 @@ public class PassengerCar extends Car {
             return false;
         if (!super.equals(o))
             return false;
-        PassengerCar that = (PassengerCar) o;
+        PassengerVehicle that = (PassengerVehicle) o;
         return passengersAmount == that.passengersAmount && body == that.body;
     }
 

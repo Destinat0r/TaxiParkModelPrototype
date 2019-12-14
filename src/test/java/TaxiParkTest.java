@@ -13,11 +13,11 @@ public class TaxiParkTest {
 
     private static TaxiPark taxiPark;
 
-    private static PassengerCar car1;
-    private static PassengerCar car2;
-    private static PassengerCar car3;
-    private static PassengerCar car4;
-    private static PassengerCar car5;
+    private static PassengerVehicle car1;
+    private static PassengerVehicle car2;
+    private static PassengerVehicle car3;
+    private static PassengerVehicle car4;
+    private static PassengerVehicle car5;
 
     private static Truck truck1;
     private static Truck truck2;
@@ -67,16 +67,16 @@ public class TaxiParkTest {
                          .withDuty(Duty.HEAVY).withPayload(25000).withColor(Color.BLACK).withMaxSpeed(120)
                          .withFuelConsumption(30).withValue(19000).build();
 
-        taxiPark = new TaxiPark(new Car[] { car1, car2, car3, car4, car5, truck1, truck2, truck3, truck4, truck5 });
+        taxiPark = new TaxiPark(new Vehicle[] { car1, car2, car3, car4, car5, truck1, truck2, truck3, truck4, truck5 });
     }
 
     @Test public void sortByFuelConsumptionAscTest() {
-        assertArrayEquals("wrong order\\amount of cars", new Car[] { car5, car3, car1, car2, car4, truck3, truck2, truck1, truck4, truck5 },
+        assertArrayEquals("wrong order\\amount of cars", new Vehicle[] { car5, car3, car1, car2, car4, truck3, truck2, truck1, truck4, truck5 },
                 taxiPark.sortByFuelConsumptionAsc().toArray());
     }
 
     @Test public void shouldReturnEmptyList_OnEmptyPark_for_sortByFuelConsumption() {
-        assertArrayEquals("should return empty list", new Car[]{},
+        assertArrayEquals("should return empty list", new Vehicle[]{},
                 new TaxiPark().sortByFuelConsumptionAsc().toArray());
     }
 
@@ -90,12 +90,12 @@ public class TaxiParkTest {
     }
 
     @Test public void findCarsWithinGivenMaxSpeedRangeTest() {
-        assertArrayEquals(new Car[] { car2, car3, car4, truck1, truck3 },
+        assertArrayEquals(new Vehicle[] { car2, car3, car4, truck1, truck3 },
                 taxiPark.findCarsWithinGivenMaxSpeedRange(150, 245).toArray());
     }
 
     @Test public void shouldReturnEmptyList__When_No_Cars_in_GivenSpeedRange() {
-        assertArrayEquals(new Car[]{}, new TaxiPark().findCarsWithinGivenMaxSpeedRange(10, 20).toArray());
+        assertArrayEquals(new Vehicle[]{}, new TaxiPark().findCarsWithinGivenMaxSpeedRange(10, 20).toArray());
     }
 
     @Test public void shouldReturn_SingleCar_FromSpeedRange_If_It_Is_TheOnlyOne() {

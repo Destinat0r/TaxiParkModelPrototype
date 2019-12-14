@@ -2,7 +2,7 @@ package com.companic.model.entity;
 
 import java.util.Objects;
 
-public class Truck extends Car {
+public class Truck extends Vehicle {
 
     private Duty duty;
     private int payload;

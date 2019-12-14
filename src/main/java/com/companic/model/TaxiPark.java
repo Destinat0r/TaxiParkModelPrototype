@@ -1,46 +1,46 @@
 package com.companic.model;
 
-import com.companic.model.entity.Car;
+import com.companic.model.entity.Vehicle;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class TaxiPark {
 
-    private List<Car> cars;
+    private List<Vehicle> vehicles;
 
     public TaxiPark() {
-        this.cars = new ArrayList<>();
+        this.vehicles = new ArrayList<>();
     }
 
-    public TaxiPark(Car[] ...cars) {
-        this.cars = new ArrayList<>();
-        for (Car[] carArray : cars) {
-            this.cars.addAll(Arrays.asList(carArray));
+    public TaxiPark(Vehicle[] ... vehicles) {
+        this.vehicles = new ArrayList<>();
+        for (Vehicle[] vehicleArray : vehicles) {
+            this.vehicles.addAll(Arrays.asList(vehicleArray));
         }
     }
 
     public int calculateTotalValue() {
-        return cars.stream().mapToInt(car -> car.getValue()).sum();
+        return vehicles.stream().mapToInt(car -> car.getValue()).sum();
     }
 
-    public List<Car> sortByFuelConsumptionAsc() {
-        List<Car> sorted = new ArrayList<>(cars);
-        sorted.sort(Comparator.comparingInt(Car::getFuelConsumption));
+    public List<Vehicle> sortByFuelConsumptionAsc() {
+        List<Vehicle> sorted = new ArrayList<>(vehicles);
+        sorted.sort(Comparator.comparingInt(Vehicle::getFuelConsumption));
         return sorted;
     }
 
-    public List<Car> findCarsWithinGivenMaxSpeedRange(int min, int max) {
-        return cars.stream()
+    public List<Vehicle> findCarsWithinGivenMaxSpeedRange(int min, int max) {
+        return vehicles.stream()
                        .filter(x -> x.getMaxSpeed() >= min && x.getMaxSpeed() <= max)
                        .collect(Collectors.toList());
     }
 
-    public List<Car> getCars() {
-        return cars;
+    public List<Vehicle> getVehicles() {
+        return vehicles;
     }
 
-    public void setCars(ArrayList<Car> cars) {
-        this.cars = cars;
+    public void setVehicles(ArrayList<Vehicle> vehicles) {
+        this.vehicles = vehicles;
     }
 }

@@ -19,8 +19,8 @@ public class PassengerCarBuilder extends CarBuilder<PassengerCarBuilder> {
         return this;
     }
 
-    public PassengerCar build() {
-        return new PassengerCar(this);
+    public PassengerVehicle build() {
+        return new PassengerVehicle(this);
     }
 
     public Body getBody() {

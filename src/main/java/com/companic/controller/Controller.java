@@ -1,7 +1,7 @@
 package com.companic.controller;
 
 import com.companic.model.TaxiPark;
-import com.companic.model.entity.PassengerCar;
+import com.companic.model.entity.PassengerVehicle;
 import com.companic.model.entity.Truck;
 import com.companic.utils.CarsInitializer;
 import com.companic.utils.ConfigConstants;
@@ -23,11 +23,11 @@ public class Controller {
         resourceManager.setLocale(new Locale(resourceManager.getConfigProperty(ConfigConstants.LOCALE_CURRENT)));
 
         Truck[] trucks = CarsInitializer.initTrucksFromJsonFile();
-        PassengerCar[] cars = CarsInitializer.initPassengerCarsFromJsonFile();
+        PassengerVehicle[] cars = CarsInitializer.initPassengerCarsFromJsonFile();
 
         TaxiPark taxiPark = new TaxiPark(cars, trucks);
 
-        view.printInitialProgramInfo(taxiPark.getCars());
+        view.printInitialProgramInfo(taxiPark.getVehicles());
 
         view.printSortedByFuelConsumptionAsc(taxiPark.sortByFuelConsumptionAsc());
 
