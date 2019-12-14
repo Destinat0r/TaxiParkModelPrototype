@@ -1,6 +1,6 @@
 package com.companic.model.entity;
 
-public class TruckBuilder extends CarBuilder<TruckBuilder> {
+public class TruckBuilder extends VehicleBuilder<TruckBuilder> {
 
     private Duty duty;
     private int payload;

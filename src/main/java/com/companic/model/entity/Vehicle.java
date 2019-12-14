@@ -23,7 +23,7 @@ public abstract class Vehicle {
     private int fuelConsumption;
     private int value;
 
-    public Vehicle(CarBuilder builder) {
+    public Vehicle(VehicleBuilder builder) {
         checkFields(builder);
         this.licensePlate = builder.getLicensePlate();
         this.vendor = builder.getVendor();
@@ -35,7 +35,7 @@ public abstract class Vehicle {
         this.value = builder.getValue();
     }
 
-    private void checkFields(CarBuilder builder) {//option
+    private void checkFields(VehicleBuilder builder) {//option
         String licensePlate = builder.getLicensePlate();
         
         if (licensePlate == null || !isValidLicensePlate(licensePlate)) {

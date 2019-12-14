@@ -1,6 +1,6 @@
 package com.companic.model.entity;
 
-public class PassengerCarBuilder extends CarBuilder<PassengerCarBuilder> {
+public class PassengerCarBuilder extends VehicleBuilder<PassengerCarBuilder> {
 
     private Body body;
     private int passengersAmount;
