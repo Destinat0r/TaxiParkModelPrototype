@@ -1,5 +1,6 @@
 package com.companic.controller;
 
+import com.companic.model.TaxiPark;
 import com.companic.model.TaxiParkImpl;
 import com.companic.model.entity.car.Car;
 import com.companic.model.entity.truck.Truck;
@@ -25,14 +26,14 @@ public class Controller {
         Truck[] trucks = CarsInitializer.initTrucksFromJsonFile();
         Car[] cars = CarsInitializer.initPassengerCarsFromJsonFile();
 
-        TaxiParkImpl taxiParkImpl = new TaxiParkImpl(cars, trucks);
+        TaxiPark taxiPark = new TaxiParkImpl(cars, trucks);
 
-        view.printInitialProgramInfo(taxiParkImpl.getVehicles());
+        view.printInitialProgramInfo(((TaxiParkImpl)taxiPark).getVehicles());
 
-        view.printSortedByFuelConsumptionAsc(taxiParkImpl.sortByFuelConsumptionAsc());
+        view.printSortedByFuelConsumptionAsc(taxiPark.sortByFuelConsumptionAsc());
 
-        view.printTotalValue(taxiParkImpl.calculateTotalValue());
+        view.printTotalValue(taxiPark.calculateTotalValue());
 
-        view.printCarsWithinSpeedRange(130, 260, taxiParkImpl.findCarsWithinGivenMaxSpeedRange(130, 260));
+        view.printCarsWithinSpeedRange(130, 260, taxiPark.findCarsWithinGivenMaxSpeedRange(130, 260));
     }
 }

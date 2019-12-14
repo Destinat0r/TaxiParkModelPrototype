@@ -5,7 +5,7 @@ import com.companic.model.entity.Vehicle;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class TaxiParkImpl {
+public class TaxiParkImpl implements TaxiPark {
 
     private List<Vehicle> vehicles;
 

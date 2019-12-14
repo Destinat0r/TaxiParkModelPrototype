@@ -7,6 +7,7 @@ import com.companic.utils.LocaleConstants;
 import com.companic.utils.ResourceManager;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class View {
 
