@@ -10,7 +10,7 @@ import java.util.Objects;
  * Represents blueprint of generic car.
  * Uses <b>Builder</b> design pattern in constructor.
  */
-public abstract class AbstractVehicle {
+public abstract class AbstractVehicle implements Vehicle {
     private String licensePlate;
     private String vendor;
     private String model;
