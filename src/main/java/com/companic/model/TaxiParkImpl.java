@@ -5,15 +5,15 @@ import com.companic.model.entity.Vehicle;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class TaxiPark {
+public class TaxiParkImpl {
 
     private List<Vehicle> vehicles;
 
-    public TaxiPark() {
+    public TaxiParkImpl() {
         this.vehicles = new ArrayList<>();
     }
 
-    public TaxiPark(Vehicle[] ... vehicles) {
+    public TaxiParkImpl(Vehicle[] ... vehicles) {
         this.vehicles = new ArrayList<>();
         for (Vehicle[] vehicleArray : vehicles) {
             this.vehicles.addAll(Arrays.asList(vehicleArray));

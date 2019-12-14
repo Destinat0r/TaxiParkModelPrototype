@@ -1,4 +1,4 @@
-import com.companic.model.TaxiPark;
+import com.companic.model.TaxiParkImpl;
 import com.companic.model.entity.*;
 import com.companic.model.entity.car.Body;
 import com.companic.model.entity.car.Car;
@@ -13,9 +13,9 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class TaxiParkTest {
+public class TaxiParkImplTest {
 
-    private static TaxiPark taxiPark;
+    private static TaxiParkImpl taxiParkImpl;
 
     private static Car car1;
     private static Car car2;
@@ -71,38 +71,38 @@ public class TaxiParkTest {
                          .withDuty(Duty.HEAVY).withPayload(25000).withColor(Color.BLACK).withMaxSpeed(120)
                          .withFuelConsumption(30).withValue(19000).build();
 
-        taxiPark = new TaxiPark(new Vehicle[] { car1, car2, car3, car4, car5, truck1, truck2, truck3, truck4, truck5 });
+        taxiParkImpl = new TaxiParkImpl(new Vehicle[] { car1, car2, car3, car4, car5, truck1, truck2, truck3, truck4, truck5 });
     }
 
     @Test public void sortByFuelConsumptionAscTest() {
         assertArrayEquals("wrong order\\amount of cars", new Vehicle[] { car5, car3, car1, car2, car4, truck3, truck2, truck1, truck4, truck5 },
-                taxiPark.sortByFuelConsumptionAsc().toArray());
+                taxiParkImpl.sortByFuelConsumptionAsc().toArray());
     }
 
     @Test public void shouldReturnEmptyList_OnEmptyPark_for_sortByFuelConsumption() {
         assertArrayEquals("should return empty list", new Vehicle[]{},
-                new TaxiPark().sortByFuelConsumptionAsc().toArray());
+                new TaxiParkImpl().sortByFuelConsumptionAsc().toArray());
     }
 
     @Test public void calculateTotalValueTest() {
-        assertEquals("wrong calculation",193_700, taxiPark.calculateTotalValue());
+        assertEquals("wrong calculation",193_700, taxiParkImpl.calculateTotalValue());
     }
 
     @Test public void shouldReturn_Zero_on_Empty_Park_for_calculateTotalValue() {
         assertEquals("should return empty list", 0,
-                new TaxiPark().calculateTotalValue());
+                new TaxiParkImpl().calculateTotalValue());
     }
 
     @Test public void findCarsWithinGivenMaxSpeedRangeTest() {
         assertArrayEquals(new Vehicle[] { car2, car3, car4, truck1, truck3 },
-                taxiPark.findCarsWithinGivenMaxSpeedRange(150, 245).toArray());
+                taxiParkImpl.findCarsWithinGivenMaxSpeedRange(150, 245).toArray());
     }
 
     @Test public void shouldReturnEmptyList__When_No_Cars_in_GivenSpeedRange() {
-        assertArrayEquals(new Vehicle[]{}, new TaxiPark().findCarsWithinGivenMaxSpeedRange(10, 20).toArray());
+        assertArrayEquals(new Vehicle[]{}, new TaxiParkImpl().findCarsWithinGivenMaxSpeedRange(10, 20).toArray());
     }
 
     @Test public void shouldReturn_SingleCar_FromSpeedRange_If_It_Is_TheOnlyOne() {
-        assertEquals("should be the only car",1, taxiPark.findCarsWithinGivenMaxSpeedRange(290, 320).size());
+        assertEquals("should be the only car",1, taxiParkImpl.findCarsWithinGivenMaxSpeedRange(290, 320).size());
     }
 }
