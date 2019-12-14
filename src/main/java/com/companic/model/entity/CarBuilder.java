@@ -1,20 +1,20 @@
 package com.companic.model.entity;
 
-public class PassengerCarBuilder extends VehicleBuilder<PassengerCarBuilder> {
+public class CarBuilder extends VehicleBuilder<CarBuilder> {
 
     private Body body;
     private int passengersAmount;
 
-    public static PassengerCarBuilder passengerCar() {
-        return new PassengerCarBuilder();
+    public static CarBuilder passengerCar() {
+        return new CarBuilder();
     }
 
-    public PassengerCarBuilder withBody(Body body) {
+    public CarBuilder withBody(Body body) {
         this.body = body;
         return this;
     }
 
-    public PassengerCarBuilder withPassengersAmount(int amount) {
+    public CarBuilder withPassengersAmount(int amount) {
         this.passengersAmount = amount;
         return this;
     }

@@ -7,14 +7,14 @@ public class Car extends Vehicle {
     private Body body;
     private int passengersAmount;
 
-    public Car(PassengerCarBuilder builder) {
+    public Car(CarBuilder builder) {
         super(builder);
         checkFields(builder);
         this.body = builder.getBody();
         this.passengersAmount = builder.getPassengersAmount();
     }
 
-    private void checkFields(PassengerCarBuilder builder) {
+    private void checkFields(CarBuilder builder) {
         if (builder.getBody() == null) {
             throw new IllegalArgumentException("body is not set");
         }

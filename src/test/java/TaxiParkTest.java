@@ -3,7 +3,7 @@ import com.companic.model.entity.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static com.companic.model.entity.PassengerCarBuilder.passengerCar;
+import static com.companic.model.entity.CarBuilder.passengerCar;
 import static com.companic.model.entity.TruckBuilder.truck;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
