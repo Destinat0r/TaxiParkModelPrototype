@@ -1,7 +1,7 @@
 package com.companic.utils;
 
 import com.companic.model.entity.car.Car;
-import com.companic.model.entity.Truck;
+import com.companic.model.entity.truck.Truck;
 
 public class CarsInitializer {
 
