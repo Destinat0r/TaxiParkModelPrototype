@@ -1,4 +1,6 @@
-package com.companic.model.entity;
+package com.companic.model.entity.car;
+
+import com.companic.model.entity.Vehicle;
 
 import java.util.Objects;
 

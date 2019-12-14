@@ -1,7 +1,7 @@
 package com.companic.controller;
 
 import com.companic.model.TaxiPark;
-import com.companic.model.entity.Car;
+import com.companic.model.entity.car.Car;
 import com.companic.model.entity.Truck;
 import com.companic.utils.CarsInitializer;
 import com.companic.utils.ConfigConstants;

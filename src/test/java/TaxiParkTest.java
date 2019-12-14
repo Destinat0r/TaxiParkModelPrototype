@@ -1,9 +1,11 @@
 import com.companic.model.TaxiPark;
 import com.companic.model.entity.*;
+import com.companic.model.entity.car.Body;
+import com.companic.model.entity.car.Car;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static com.companic.model.entity.CarBuilder.passengerCar;
+import static com.companic.model.entity.car.CarBuilder.passengerCar;
 import static com.companic.model.entity.TruckBuilder.truck;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;

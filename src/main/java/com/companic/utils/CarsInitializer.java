@@ -1,6 +1,6 @@
 package com.companic.utils;
 
-import com.companic.model.entity.Car;
+import com.companic.model.entity.car.Car;
 import com.companic.model.entity.Truck;
 
 public class CarsInitializer {

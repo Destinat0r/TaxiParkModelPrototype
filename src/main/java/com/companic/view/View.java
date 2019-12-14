@@ -1,6 +1,6 @@
 package com.companic.view;
 
-import com.companic.model.entity.Car;
+import com.companic.model.entity.car.Car;
 import com.companic.model.entity.Vehicle;
 import com.companic.model.entity.Truck;
 import com.companic.utils.LocaleConstants;
