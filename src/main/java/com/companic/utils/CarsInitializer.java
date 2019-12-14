@@ -1,16 +1,16 @@
 package com.companic.utils;
 
-import com.companic.model.entity.PassengerVehicle;
+import com.companic.model.entity.Car;
 import com.companic.model.entity.Truck;
 
 public class CarsInitializer {
 
     private static final ResourceManager RESOURCE_MANAGER = ResourceManager.INSTANCE;
 
-    public static PassengerVehicle[] initPassengerCarsFromJsonFile() {
+    public static Car[] initPassengerCarsFromJsonFile() {
         return JsonArrayLoader
                        .readFromJson(RESOURCE_MANAGER.getConfigProperty(ConfigConstants.PATH_JSON_PASSENGER_CARS),
-                               PassengerVehicle[].class);
+                               Car[].class);
     }
 
     public static Truck[] initTrucksFromJsonFile() {

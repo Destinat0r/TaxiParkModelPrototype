@@ -13,11 +13,11 @@ public class TaxiParkTest {
 
     private static TaxiPark taxiPark;
 
-    private static PassengerVehicle car1;
-    private static PassengerVehicle car2;
-    private static PassengerVehicle car3;
-    private static PassengerVehicle car4;
-    private static PassengerVehicle car5;
+    private static Car car1;
+    private static Car car2;
+    private static Car car3;
+    private static Car car4;
+    private static Car car5;
 
     private static Truck truck1;
     private static Truck truck2;

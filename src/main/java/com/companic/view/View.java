@@ -1,6 +1,6 @@
 package com.companic.view;
 
-import com.companic.model.entity.PassengerVehicle;
+import com.companic.model.entity.Car;
 import com.companic.model.entity.Vehicle;
 import com.companic.model.entity.Truck;
 import com.companic.utils.LocaleConstants;
@@ -108,8 +108,8 @@ public class View {
         String keyValueDivider = getFromResources(LocaleConstants.KEY_VALUE_DIVIDER);
         String divider = getFromResources(LocaleConstants.DIVIDER);
 
-        if (vehicle instanceof PassengerVehicle) {
-            PassengerVehicle passengerCar = (PassengerVehicle) vehicle;
+        if (vehicle instanceof Car) {
+            Car passengerCar = (Car) vehicle;
             builder.append(getFromResources(LocaleConstants.BODY)).append(keyValueDivider)
                     .append(getFromResources(getBodyTypeName(passengerCar))).append(divider)
                     .append(getFromResources(LocaleConstants.PASSENGERS_AMOUNT)).append(keyValueDivider)
@@ -128,13 +128,13 @@ public class View {
                        .append(".").append(truck.getDuty().toString().toLowerCase()).toString();
     }
 
-    private String getBodyTypeName(PassengerVehicle passengerCar) {
+    private String getBodyTypeName(Car passengerCar) {
         return new StringBuilder(LocaleConstants.BODY).append(".")
                        .append(passengerCar.getBody().toString().toLowerCase()).toString();
     }
 
     private void appendCorrectCarType(Vehicle vehicle, StringBuilder builder) {
-        if (vehicle instanceof PassengerVehicle) {
+        if (vehicle instanceof Car) {
             builder.append(getFromResources(LocaleConstants.PASSENGER_CAR));
         } else if (vehicle instanceof Truck){
             builder.append(getFromResources(LocaleConstants.TRUCK));
