@@ -28,7 +28,7 @@ public class Controller {
 
         TaxiPark taxiPark = new TaxiParkImpl(cars, trucks);
 
-        view.printInitialProgramInfo(((TaxiParkImpl)taxiPark).getVehicles());
+        view.printInitialProgramInfo(taxiPark.getVehicles());
 
         view.printSortedByFuelConsumptionAsc(taxiPark.sortByFuelConsumptionAsc());
 

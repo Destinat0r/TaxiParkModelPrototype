@@ -8,4 +8,5 @@ public interface TaxiPark {
     int calculateTotalValue();
     List<Vehicle> sortByFuelConsumptionAsc();
     List<Vehicle> findCarsWithinGivenMaxSpeedRange(int min, int max);
+    List<Vehicle> getVehicles();
 }
