@@ -9,7 +9,7 @@ public class CarsInitializer {
 
     public static Car[] initPassengerCarsFromJsonFile() {
         return JsonArrayLoader
-                       .readFromJson(RESOURCE_MANAGER.getConfigProperty(ConfigConstants.PATH_JSON_PASSENGER_CARS),
+                       .readFromJson(RESOURCE_MANAGER.getConfigProperty(ConfigConstants.PATH_JSON_CARS),
                                Car[].class);
     }
 
