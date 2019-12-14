@@ -51,7 +51,7 @@ public abstract class VehicleBuilder<B extends VehicleBuilder> {
         return self();
     }
 
-    public abstract Vehicle build();
+    public abstract AbstractVehicle build();
 
     final B self() {
         return (B) this;

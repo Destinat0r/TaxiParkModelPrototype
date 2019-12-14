@@ -1,10 +1,10 @@
 package com.companic.model.entity.truck;
 
-import com.companic.model.entity.Vehicle;
+import com.companic.model.entity.AbstractVehicle;
 
 import java.util.Objects;
 
-public class Truck extends Vehicle {
+public class Truck extends AbstractVehicle {
 
     private Duty duty;
     private int payload;

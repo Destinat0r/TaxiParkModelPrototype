@@ -1,13 +1,12 @@
 package com.companic.view;
 
 import com.companic.model.entity.car.Car;
-import com.companic.model.entity.Vehicle;
+import com.companic.model.entity.AbstractVehicle;
 import com.companic.model.entity.truck.Truck;
 import com.companic.utils.LocaleConstants;
 import com.companic.utils.ResourceManager;
 
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class View {
 
@@ -17,7 +16,7 @@ public class View {
         this.resourceManager = ResourceManager.INSTANCE;
     }
 
-    public void printInitialProgramInfo(List<Vehicle> vehicles) {
+    public void printInitialProgramInfo(List<AbstractVehicle> vehicles) {
         printWelcome();
         print("");
         print(resourceManager.getLocaleProperty(LocaleConstants.SHOW_ALL_CARS));
@@ -25,8 +24,8 @@ public class View {
         printCars(vehicles);
     }
 
-    public void printCars(List<Vehicle> vehicles) {
-        for (Vehicle vehicle : vehicles) {
+    public void printCars(List<AbstractVehicle> vehicles) {
+        for (AbstractVehicle vehicle : vehicles) {
             printCar(vehicle);
             print("");
         }
@@ -55,23 +54,23 @@ public class View {
         print(getFromResources(LocaleConstants.WELCOME));
     }
 
-    public void printSortedByFuelConsumptionAsc(List<Vehicle> vehicles) {
+    public void printSortedByFuelConsumptionAsc(List<AbstractVehicle> vehicles) {
         print(getFromResources(LocaleConstants.SORT_BY_FUEL_CONSUMPTION_ASC));
         print("");
         printCars(vehicles);
     }
 
-    public void printCarsWithinSpeedRange(int min, int max, List<Vehicle> vehicles) {
+    public void printCarsWithinSpeedRange(int min, int max, List<AbstractVehicle> vehicles) {
         System.out.printf(getFromResources(LocaleConstants.WITHIN_MAX_SPEED_RANGE), min, max);
         print("\n");
         printCars(vehicles);
     }
 
-    public void printCar(Vehicle vehicle) {
+    public void printCar(AbstractVehicle vehicle) {
         print(generateInfoOutputFor(vehicle));
     }
 
-    private String generateInfoOutputFor(Vehicle vehicle) {
+    private String generateInfoOutputFor(AbstractVehicle vehicle) {
         StringBuilder builder = new StringBuilder(200);
 
         String keyValueDivider = getFromResources(LocaleConstants.KEY_VALUE_DIVIDER);
@@ -100,12 +99,12 @@ public class View {
         return builder.toString();
     }
 
-    private String getColorResourceName(Vehicle vehicle) {
+    private String getColorResourceName(AbstractVehicle vehicle) {
         return new StringBuilder(LocaleConstants.COLOR).append(".")
                        .append(vehicle.getColor().toString().toLowerCase()).toString();
     }
 
-    private void appendSpecificInfo(Vehicle vehicle, StringBuilder builder) {
+    private void appendSpecificInfo(AbstractVehicle vehicle, StringBuilder builder) {
         String keyValueDivider = getFromResources(LocaleConstants.KEY_VALUE_DIVIDER);
         String divider = getFromResources(LocaleConstants.DIVIDER);
 
@@ -134,7 +133,7 @@ public class View {
                        .append(passengerCar.getBody().toString().toLowerCase()).toString();
     }
 
-    private void appendCorrectCarType(Vehicle vehicle, StringBuilder builder) {
+    private void appendCorrectCarType(AbstractVehicle vehicle, StringBuilder builder) {
         if (vehicle instanceof Car) {
             builder.append(getFromResources(LocaleConstants.PASSENGER_CAR));
         } else if (vehicle instanceof Truck){
