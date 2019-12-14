@@ -1,21 +1,22 @@
 package com.companic.model;
 
 import com.companic.model.entity.AbstractVehicle;
+import com.companic.model.entity.Vehicle;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class TaxiParkImpl implements TaxiPark {
 
-    private List<AbstractVehicle> vehicles;
+    private List<Vehicle> vehicles;
 
     public TaxiParkImpl() {
         this.vehicles = new ArrayList<>();
     }
 
-    public TaxiParkImpl(AbstractVehicle[] ... vehicles) {
+    public TaxiParkImpl(Vehicle[] ... vehicles) {
         this.vehicles = new ArrayList<>();
-        for (AbstractVehicle[] vehicleArray : vehicles) {
+        for (Vehicle[] vehicleArray : vehicles) {
             this.vehicles.addAll(Arrays.asList(vehicleArray));
         }
     }
@@ -24,23 +25,23 @@ public class TaxiParkImpl implements TaxiPark {
         return vehicles.stream().mapToInt(car -> car.getValue()).sum();
     }
 
-    public List<AbstractVehicle> sortByFuelConsumptionAsc() {
-        List<AbstractVehicle> sorted = new ArrayList<>(vehicles);
-        sorted.sort(Comparator.comparingInt(AbstractVehicle::getFuelConsumption));
+    public List<Vehicle> sortByFuelConsumptionAsc() {
+        List<Vehicle> sorted = new ArrayList<>(vehicles);
+        sorted.sort(Comparator.comparingInt(Vehicle::getFuelConsumption));
         return sorted;
     }
 
-    public List<AbstractVehicle> findCarsWithinGivenMaxSpeedRange(int min, int max) {
+    public List<Vehicle> findCarsWithinGivenMaxSpeedRange(int min, int max) {
         return vehicles.stream()
                        .filter(x -> x.getMaxSpeed() >= min && x.getMaxSpeed() <= max)
                        .collect(Collectors.toList());
     }
 
-    public List<AbstractVehicle> getVehicles() {
+    public List<Vehicle> getVehicles() {
         return vehicles;
     }
 
-    public void setVehicles(ArrayList<AbstractVehicle> vehicles) {
+    public void setVehicles(ArrayList<Vehicle> vehicles) {
         this.vehicles = vehicles;
     }
 }
