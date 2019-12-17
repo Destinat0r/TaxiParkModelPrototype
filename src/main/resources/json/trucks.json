@@ -1,0 +1,74 @@
+[
+  {
+    "duty": "MEDIUM",
+    "payload": 10000,
+    "licensePlate": "4RSL95H",
+    "vendor": "International",
+    "model": "CV515: 115\" BBC",
+    "year": 2018,
+    "color": "RED",
+    "maxSpeed": 180,
+    "fuelConsumption": 20,
+    "value": 100500
+  },
+  {
+    "duty": "MEDIUM",
+    "payload": 10000,
+    "licensePlate": "8F483NA",
+    "vendor": "HINO",
+    "model": "NH: 155\" Cabover",
+    "year": 2007,
+    "color": "GREY",
+    "maxSpeed": 140,
+    "fuelConsumption": 17,
+    "value": 34500
+  },
+  {
+    "duty": "LIGHT",
+    "payload": 2000,
+    "licensePlate": "JF71NH5",
+    "vendor": "Ford",
+    "model": "F150",
+    "year": 1977,
+    "color": "BLUE",
+    "maxSpeed": 160,
+    "fuelConsumption": 11,
+    "value": 5700
+  },
+  {
+    "duty": "HEAVY",
+    "payload": 20000,
+    "licensePlate": "8GH5N12",
+    "vendor": "Freightliner",
+    "model": "BUSINESS CLASS M2 106",
+    "year": 2007,
+    "color": "WHITE",
+    "maxSpeed": 130,
+    "fuelConsumption": 25,
+    "value": 15700
+  },
+  {
+    "duty": "HEAVY",
+    "payload": 25000,
+    "licensePlate": "93N12L9",
+    "vendor": "Kenworth",
+    "model": "K100",
+    "year": 1984,
+    "color": "BLACK",
+    "maxSpeed": 120,
+    "fuelConsumption": 30,
+    "value": 19000
+  },
+  {
+    "duty": "LIGHT",
+    "payload": 3000,
+    "licensePlate": "5РВ761С",
+    "vendor": "Toyota",
+    "model": "TACOMA",
+    "year": 1971,
+    "color": "ORANGE",
+    "maxSpeed": 145,
+    "fuelConsumption": 10,
+    "value": 9700
+  }
+]
